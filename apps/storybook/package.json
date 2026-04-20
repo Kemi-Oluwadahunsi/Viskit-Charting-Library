@@ -1,0 +1,32 @@
+{
+  "name": "@viskit/storybook",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build -o dist",
+    "clean": "rm -rf dist node_modules"
+  },
+  "dependencies": {
+    "@viskit/core": "workspace:*",
+    "@viskit/charts": "workspace:*",
+    "@viskit/themes": "workspace:*",
+    "@viskit/animations": "workspace:*",
+    "@viskit/react": "workspace:*",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-viewport": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "storybook": "^8.6.14",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "~6.0.2",
+    "vite": "^6.0.0"
+  }
+}

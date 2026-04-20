@@ -1,0 +1,48 @@
+{
+  "name": "@viskit/animations",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "sideEffects": false,
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist node_modules"
+  },
+  "dependencies": {
+    "@react-spring/web": "^9.7.5"
+  },
+  "devDependencies": {
+    "@viskit/tsconfig": "workspace:*",
+    "@viskit/eslint-config": "workspace:*",
+    "eslint": "^9.39.4",
+    "tsup": "^8.4.0",
+    "typescript": "~6.0.2",
+    "vitest": "^3.2.1",
+    "react": "^19.2.4",
+    "@types/react": "^19.2.14"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  }
+}

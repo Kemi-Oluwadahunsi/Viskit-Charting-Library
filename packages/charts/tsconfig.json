@@ -1,0 +1,12 @@
+{
+  "extends": "../../tooling/tsconfig/library.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "paths": {
+      "@viskit/core": ["../core/dist/index.d.ts"],
+      "@viskit/themes": ["../themes/dist/index.d.ts"],
+      "@viskit/animations": ["../animations/dist/index.d.ts"]
+    }
+  },
+  "include": ["src"]
+}
