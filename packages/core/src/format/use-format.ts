@@ -26,6 +26,7 @@ export function useFormat(
   format?: FormatFunction,
   locale: string = 'en-US',
 ): (value: unknown) => string {
+  // eslint-disable-next-line react-hooks/preserve-manual-memoization
   return useMemo(() => {
     // No format specified — convert to string
     if (!format) return (v: unknown) => String(v ?? '');

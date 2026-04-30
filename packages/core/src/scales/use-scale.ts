@@ -159,6 +159,9 @@ export function detectScaleType(sampleValues: unknown[]): ScaleType {
 export function useScale<TDomain = unknown, TRange = unknown>(
   config: ScaleConfig<TDomain, TRange>,
 ): ScaleResult<TDomain, TRange> {
+  const domainKey = JSON.stringify(config.domain);
+  const rangeKey = JSON.stringify(config.range);
+
   return useMemo(() => {
     const raw = createScale(config as ScaleConfig);
 
@@ -190,11 +193,11 @@ export function useScale<TDomain = unknown, TRange = unknown>(
     }
 
     return result;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     config.type,
-    // Serialize arrays for stable deps
-    JSON.stringify(config.domain),
-    JSON.stringify(config.range),
+    domainKey,
+    rangeKey,
     config.nice,
     config.clamp,
     config.zero,

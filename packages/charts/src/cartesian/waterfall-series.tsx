@@ -68,6 +68,7 @@ export function WaterfallSeries<TDatum extends Record<string, unknown>>({
         color = totalColor;
       } else {
         start = runningTotal;
+        // eslint-disable-next-line react-hooks/immutability
         runningTotal += value;
         end = runningTotal;
         color = value >= 0 ? positiveColor : negativeColor;

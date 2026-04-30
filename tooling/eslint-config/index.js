@@ -12,12 +12,10 @@ import tseslint from 'typescript-eslint';
  */
 export const baseConfig = [
   { ignores: ['dist', 'node_modules', '*.config.*'] },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-    ],
     plugins: {
       'react-hooks': reactHooks,
     },

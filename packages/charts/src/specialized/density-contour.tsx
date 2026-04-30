@@ -45,7 +45,7 @@ export function DensityContour<TDatum extends Record<string, unknown>>({
   pointRadius = 2,
   'aria-label': ariaLabel,
 }: DensityContourProps<TDatum>) {
-  const { data, dimensions, colorScale: _colorScale } = useChartContext<TDatum>();
+  const { data, dimensions } = useChartContext<TDatum>();
   const [hovered, setHovered] = useState<number | null>(null);
 
   const handleEnter = useCallback((i: number) => setHovered(i), []);
