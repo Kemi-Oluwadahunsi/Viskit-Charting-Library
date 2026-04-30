@@ -72,13 +72,30 @@ jobs:
 
       - name: Report bundle sizes
         run: |
+          human_size() {
+            local bytes=$1
+            if [ "$bytes" -ge 1048576 ]; then
+              echo "$(awk "BEGIN {printf \"%.1f\", $bytes/1048576}")MB"
+            elif [ "$bytes" -ge 1024 ]; then
+              echo "$(awk "BEGIN {printf \"%.1f\", $bytes/1024}")KB"
+            else
+              echo "${bytes}B"
+            fi
+          }
+          file_size() {
+            if [ -f "$1" ]; then
+              human_size "$(wc -c < "$1" | xargs)"
+            else
+              echo "—"
+            fi
+          }
           echo "## Bundle Sizes" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Package | ESM | CJS | DTS |" >> $GITHUB_STEP_SUMMARY
           echo "|---------|-----|-----|-----|" >> $GITHUB_STEP_SUMMARY
           for pkg in core themes animations charts react; do
-            esm=$(du -sh packages/$pkg/dist/index.js 2>/dev/null | cut -f1 || echo "—")
-            cjs=$(du -sh packages/$pkg/dist/index.cjs 2>/dev/null | cut -f1 || echo "—")
-            dts=$(du -sh packages/$pkg/dist/index.d.ts 2>/dev/null | cut -f1 || echo "—")
-            echo "| @viskit/$pkg | $esm | $cjs | $dts |" >> $GITHUB_STEP_SUMMARY
+            esm=$(file_size "packages/$pkg/dist/index.js")
+            cjs=$(file_size "packages/$pkg/dist/index.cjs")
+            dts=$(file_size "packages/$pkg/dist/index.d.ts")
+            echo "| @kodemaven/viskit-$pkg | $esm | $cjs | $dts |" >> $GITHUB_STEP_SUMMARY
           done
