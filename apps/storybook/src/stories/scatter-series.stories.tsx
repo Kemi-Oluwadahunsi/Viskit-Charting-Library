@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { ScatterSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { ScatterSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { scatterData, monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { ScatterSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { ScatterSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders individual circles at each data point. Ideal for showing
@@ -56,6 +56,7 @@ export const Default: Story = {
       <YAxis format="compact" />
       <ScatterSeries field={args.field} color={args.color} radius={args.radius} opacity={args.opacity} />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[{ key: args.field, label: 'Conversions', color: args.color }]} />
     </Chart>
   ),
 };

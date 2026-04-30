@@ -7,6 +7,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   treeshake: true,
+  splitting: true,
   external: ['react', 'react-dom', '@react-spring/web'],
   target: 'es2022',
 });

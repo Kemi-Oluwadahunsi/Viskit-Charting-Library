@@ -7,7 +7,7 @@
 // real-world motion, unlike bezier easing curves.
 //
 // Usage:
-//   import { springPresets } from '@viskit/animations';
+//   import { springPresets } from '@kodemaven/viskit-animations';
 //   useSpring({ to: { opacity: 1 }, config: springPresets.responsive });
 // ─────────────────────────────────────────────────
 

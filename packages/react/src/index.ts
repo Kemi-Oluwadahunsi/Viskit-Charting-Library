@@ -1,28 +1,28 @@
 // ─────────────────────────────────────────────────
-// @viskit/react — Consumer entry point
+// viskit-react — Consumer entry point
 // ─────────────────────────────────────────────────
 // This is the main package consumers install:
 //
-//   npm install @viskit/react
+//   npm install viskit-react
 //
 // It re-exports everything from the internal
 // packages so consumers have a single import:
 //
-//   import { Chart, LineSeries, midnight } from '@viskit/react';
+//   import { Chart, LineSeries, midnight } from 'viskit-react';
 //
 // For tree-shaking, consumers can also import
 // directly from sub-packages if they prefer.
 // ─────────────────────────────────────────────────
 
 // ── Core ───────────────────────────────────────
-export { Chart } from '@viskit/core';
+export { Chart } from '@kodemaven/viskit-core';
 export type {
   ChartProps,
   ChartHandle,
-} from '@viskit/core';
-export { useChartContext, useCartesianContext, usePolarContext } from '@viskit/core';
-export { useScale } from '@viskit/core';
-export { useFormat } from '@viskit/core';
+} from '@kodemaven/viskit-core';
+export { useChartContext, useCartesianContext, usePolarContext } from '@kodemaven/viskit-core';
+export { useScale } from '@kodemaven/viskit-core';
+export { useFormat } from '@kodemaven/viskit-core';
 export type {
   Margin,
   Dimensions,
@@ -33,11 +33,11 @@ export type {
   TooltipPayload,
   FormatFunction,
   BuiltinFormat,
-} from '@viskit/core';
+} from '@kodemaven/viskit-core';
 
 // ── Charts — Phase 1 ──────────────────────────
-export { LineSeries, BarSeries, AreaSeries, ScatterSeries } from '@viskit/charts';
-export { PieSeries } from '@viskit/charts';
+export { LineSeries, BarSeries, AreaSeries, ScatterSeries } from '@kodemaven/viskit-charts';
+export { PieSeries } from '@kodemaven/viskit-charts';
 
 // ── Charts — Phase 2 Cartesian ────────────────
 export {
@@ -49,22 +49,22 @@ export {
   BubbleSeries,
   LollipopSeries,
   DumbbellSeries,
-} from '@viskit/charts';
+} from '@kodemaven/viskit-charts';
 
 // ── Charts — Phase 2 Radial ───────────────────
-export { RadarSeries, RadialBarSeries, PolarAreaSeries } from '@viskit/charts';
+export { RadarSeries, RadialBarSeries, PolarAreaSeries } from '@kodemaven/viskit-charts';
 
 // ── Charts — Phase 2 Specialized ──────────────
-export { HistogramSeries, Heatmap, Sparkline } from '@viskit/charts';
+export { HistogramSeries, Heatmap, Sparkline } from '@kodemaven/viskit-charts';
 
 // ── Charts — Phase 2 Canvas ───────────────────
-export { CanvasRenderer } from '@viskit/charts';
+export { CanvasRenderer } from '@kodemaven/viskit-charts';
 
 // ── Charts — Phase 3 Hierarchical ─────────────
-export { TreemapSeries, SunburstSeries, CirclePackingSeries, IcicleSeries } from '@viskit/charts';
+export { TreemapSeries, SunburstSeries, CirclePackingSeries, IcicleSeries } from '@kodemaven/viskit-charts';
 
 // ── Charts — Phase 3 Flow ─────────────────────
-export { SankeyDiagram, ChordDiagram, ForceGraph, FunnelSeries } from '@viskit/charts';
+export { SankeyDiagram, ChordDiagram, ForceGraph, FunnelSeries } from '@kodemaven/viskit-charts';
 
 // ── Charts — Phase 3 Financial / Statistical ──
 export {
@@ -74,10 +74,35 @@ export {
   ViolinSeries,
   BulletSeries,
   SlopeSeries,
-} from '@viskit/charts';
+} from '@kodemaven/viskit-charts';
 
 // ── Charts — Phase 3 Specialized ──────────────
-export { GaugeSeries, StreamGraphSeries } from '@viskit/charts';
+export { GaugeSeries, StreamGraphSeries } from '@kodemaven/viskit-charts';
+
+// ── Charts — Phase 4 Exotic ───────────────────
+export {
+  ParallelCoordinatesSeries,
+  RidgeLineSeries,
+  MarimekkoSeries,
+  GanttSeries,
+  CalendarHeatmap,
+  WordCloud,
+  DensityContour,
+} from '@kodemaven/viskit-charts';
+
+// ── Charts — Phase 4 Composition ──────────────
+export { ChartGroup, useChartGroup, Brush } from '@kodemaven/viskit-charts';
+
+// ── Charts — Phase 4 Interaction ──────────────
+export { ReferenceLine, ReferenceBand, CrosshairOverlay, Annotations } from '@kodemaven/viskit-charts';
+
+// ── Charts — Phase 4 Utilities ────────────────
+export { exportToPNG, exportToSVG, useStreamingData } from '@kodemaven/viskit-charts';
+
+// ── Charts — Phase 5 ─────────────────────────
+export { PyramidSeries, DivergingBarSeries, TimelineSeries, ComparisonSeries } from '@kodemaven/viskit-charts';
+export { VennDiagram } from '@kodemaven/viskit-charts';
+export { DonutSeries } from '@kodemaven/viskit-charts';
 
 // ── Charts — Types ─────────────────────────────
 export type {
@@ -118,15 +143,42 @@ export type {
   SlopeSeriesProps,
   GaugeSeriesProps,
   StreamGraphSeriesProps,
-} from '@viskit/charts';
+  // Phase 4 types
+  ParallelCoordinatesSeriesProps,
+  RidgeLineSeriesProps,
+  MarimekkoSeriesProps,
+  GanttSeriesProps,
+  CalendarHeatmapProps,
+  WordCloudProps,
+  DensityContourProps,
+  ChartGroupProps,
+  BrushProps,
+  ReferenceLineProps,
+  ReferenceBandProps,
+  CrosshairOverlayProps,
+  AnnotationsProps,
+  AnnotationItem,
+  ExportOptions,
+  UseStreamingDataOptions,
+  UseStreamingDataResult,
+  // Phase 5 types
+  PyramidSeriesProps,
+  DivergingBarSeriesProps,
+  TimelineSeriesProps,
+  ComparisonSeriesProps,
+  VennDiagramProps,
+  VennSet,
+  VennIntersection,
+  DonutSeriesProps,
+} from '@kodemaven/viskit-charts';
 
 // ── Primitives ─────────────────────────────────
-export { XAxis, YAxis, CartesianGrid, Legend, Tooltip, TooltipContent } from '@viskit/charts';
-export type { XAxisProps, YAxisProps, CartesianGridProps, LegendProps, LegendItem, TooltipProps, TooltipContentProps } from '@viskit/charts';
+export { XAxis, YAxis, CartesianGrid, Legend, Tooltip, TooltipContent } from '@kodemaven/viskit-charts';
+export type { XAxisProps, YAxisProps, CartesianGridProps, LegendProps, LegendItem, TooltipProps, TooltipContentProps } from '@kodemaven/viskit-charts';
 
 // ── Themes ─────────────────────────────────────
-export { midnight, daylight, aurora, corporate, createTheme, injectCSSVariables, ThemeProvider, useTheme } from '@viskit/themes';
-export type { VisualizationTokens, PartialTokens, ThemeProviderProps } from '@viskit/themes';
+export { midnight, daylight, aurora, corporate, createTheme, injectCSSVariables, ThemeProvider, useTheme } from '@kodemaven/viskit-themes';
+export type { VisualizationTokens, PartialTokens, ThemeProviderProps } from '@kodemaven/viskit-themes';
 
 // ── Animations ─────────────────────────────────
-export { useReducedMotion, springPresets, resolveSpringConfig } from '@viskit/animations';
+export { useReducedMotion, springPresets, resolveSpringConfig } from '@kodemaven/viskit-animations';

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { LollipopSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { LollipopSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { trafficSources, monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { LollipopSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { LollipopSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
  * ```
  *
  * A hybrid of bar and scatter — renders a thin stick from baseline
@@ -53,6 +53,7 @@ export const Default: Story = {
       <YAxis format="compact" />
       <LollipopSeries field={args.field} color={args.color} dotRadius={args.dotRadius} />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[{ key: args.field, label: 'Sessions', color: args.color }]} />
     </Chart>
   ),
 };

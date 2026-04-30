@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { AreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { AreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { monthlyMetrics, weeklyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { AreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { AreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a filled area beneath a line. Supports gradient fills,
@@ -59,6 +59,7 @@ export const Default: Story = {
       <YAxis format="compact" />
       <AreaSeries field={args.field} color={args.color} gradient={args.gradient} opacity={args.opacity} strokeWidth={args.strokeWidth} curve={args.curve} />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[{ key: args.field, label: 'Revenue', color: args.color }]} />
     </Chart>
   ),
 };

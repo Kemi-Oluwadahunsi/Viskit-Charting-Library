@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────
-// Shared type definitions for @viskit/core
+// Shared type definitions for @kodemaven/viskit-core
 // ─────────────────────────────────────────────────
 // These types are used across all VisKit packages.
 // Only truly shared, cross-cutting types live here.

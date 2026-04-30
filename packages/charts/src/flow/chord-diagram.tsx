@@ -17,7 +17,7 @@
 import { useMemo, useState, useCallback } from 'react';
 import { chord as d3Chord, ribbon as d3Ribbon } from 'd3-chord';
 import { arc as d3Arc } from 'd3-shape';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface ChordDiagramProps {
   /** Square matrix of flow values between groups */

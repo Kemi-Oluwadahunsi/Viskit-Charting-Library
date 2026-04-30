@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { FunnelSeries } from '@viskit/charts';
-import { funnelData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { FunnelSeries, Legend } from '@kodemaven/viskit-charts';
+import { funnelData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { FunnelSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { FunnelSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a funnel chart showing progressive narrowing through pipeline
@@ -46,8 +46,15 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { gap: 4, neckWidth: 0.3, opacity: 1, height: 450 },
   render: (args) => (
-    <Chart data={funnelData} height={args.height}>
+    <Chart data={funnelData} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet]}>
       <FunnelSeries field="count" nameField="stage" gap={args.gap} neckWidth={args.neckWidth} opacity={args.opacity} />
+      <Legend items={[
+        { key: 'Visitors', label: 'Visitors' },
+        { key: 'Signups', label: 'Signups' },
+        { key: 'Activated', label: 'Activated' },
+        { key: 'Subscribed', label: 'Subscribed' },
+        { key: 'Retained', label: 'Retained' },
+      ]} />
     </Chart>
   ),
 };

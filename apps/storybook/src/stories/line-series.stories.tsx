@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { LineSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { LineSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { monthlyMetrics, weeklyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { LineSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { LineSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a single continuous line connecting data points. Supports multiple
@@ -100,6 +100,7 @@ export const Default: Story = {
         opacity={args.opacity}
       />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[{ key: args.field, label: 'Revenue', color: args.color }]} />
     </Chart>
   ),
 };

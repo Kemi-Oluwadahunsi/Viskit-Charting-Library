@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { SankeyDiagram } from '@viskit/charts';
-import { sankeyNodes, sankeyLinks, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { SankeyDiagram, Legend } from '@kodemaven/viskit-charts';
+import { sankeyNodes, sankeyLinks, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { SankeyDiagram } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { SankeyDiagram } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a Sankey flow diagram showing weighted relationships between nodes.
@@ -48,7 +48,7 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { nodeWidth: 16, nodePadding: 12, align: 'justify', linkOpacity: 0.4, height: 450 },
   render: (args) => (
-    <Chart data={[]} height={args.height}>
+    <Chart data={[]} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet, PALETTE.cyan, PALETTE.orange, PALETTE.green]}>
       <SankeyDiagram
         nodes={sankeyNodes}
         links={sankeyLinks}
@@ -57,6 +57,12 @@ export const Default: Story = {
         align={args.align as 'justify'}
         linkOpacity={args.linkOpacity}
       />
+      <Legend items={[
+        { key: 'Budget', label: 'Budget' },
+        { key: 'Engineering', label: 'Engineering' },
+        { key: 'Marketing', label: 'Marketing' },
+        { key: 'Operations', label: 'Operations' },
+      ]} />
     </Chart>
   ),
 };

@@ -2,7 +2,7 @@
 // Demo App — Showcase all VisKit chart series
 // ─────────────────────────────────────────────────
 
-import { Chart } from '@viskit/core';
+import { Chart } from '@kodemaven/viskit-core';
 import {
   // Phase 1
   LineSeries, BarSeries, AreaSeries, ScatterSeries, PieSeries,
@@ -16,7 +16,7 @@ import {
   HistogramSeries, Heatmap, Sparkline,
   // Primitives
   XAxis, YAxis, CartesianGrid, Tooltip,
-} from '@viskit/charts';
+} from '@kodemaven/viskit-charts';
 
 // ── Datasets ───────────────────────────────────
 

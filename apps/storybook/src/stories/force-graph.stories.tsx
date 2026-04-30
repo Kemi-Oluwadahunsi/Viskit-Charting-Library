@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { ForceGraph } from '@viskit/charts';
-import { forceNodes, forceLinks, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { ForceGraph, Legend } from '@kodemaven/viskit-charts';
+import { forceNodes, forceLinks, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { ForceGraph } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { ForceGraph } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a force-directed graph where nodes are positioned by a physics
@@ -46,8 +46,14 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { radius: 8, charge: -120, linkDistance: 80, height: 450 },
   render: (args) => (
-    <Chart data={[]} height={args.height}>
+    <Chart data={[]} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber]}>
       <ForceGraph nodes={forceNodes} links={forceLinks} radius={args.radius} charge={args.charge} linkDistance={args.linkDistance} />
+      <Legend items={[
+        { key: '0', label: 'React Ecosystem' },
+        { key: '1', label: 'Deployment' },
+        { key: '2', label: 'Server' },
+        { key: '3', label: 'Database' },
+      ]} />
     </Chart>
   ),
 };

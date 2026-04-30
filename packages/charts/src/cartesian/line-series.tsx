@@ -19,8 +19,8 @@
 
 import { useMemo, useState, useCallback } from 'react';
 import { line, curveBasis, curveCardinal, curveCatmullRom, curveLinear, curveMonotoneX, curveNatural, curveStep } from 'd3-shape';
-import { useChartContext, useCartesianContext } from '@viskit/core';
-import type { BaseSeriesProps } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
+import type { BaseSeriesProps } from '@kodemaven/viskit-core';
 
 // ── Curve type mapping ─────────────────────────
 

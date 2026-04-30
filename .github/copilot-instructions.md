@@ -30,7 +30,7 @@ You are working on **VisKit**, a modern React data visualization library. Read `
 
 - Keep files short. One component per file. One hook per file
 - Colocate tests: `line-series.tsx` → `line-series.test.tsx` in the same directory
-- Colocate types with their module. Don't create a central `types.ts` dumping ground — only shared cross-package types go in `@viskit/core/types`
+- Colocate types with their module. Don't create a central `types.ts` dumping ground — only shared cross-package types go in `@kodemaven/viskit-core/types`
 - Group by feature, not by type. Put the hook, component, types, and tests for a feature together — not in separate `hooks/`, `components/`, `types/` folders
 
 ### Simplicity

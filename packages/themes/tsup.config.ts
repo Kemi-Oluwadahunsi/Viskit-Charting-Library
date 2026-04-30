@@ -7,5 +7,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   treeshake: true,
+  splitting: true,
+  external: ['react', 'react-dom'],
   target: 'es2022',
 });

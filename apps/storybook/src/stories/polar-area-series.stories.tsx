@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { PolarAreaSeries } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { PolarAreaSeries, Legend } from '@kodemaven/viskit-charts';
 import { polarAreaData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { PolarAreaSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { PolarAreaSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders equal-angle sectors where the radius is proportional to
@@ -59,6 +59,14 @@ export const Default: Story = {
         cornerRadius={args.cornerRadius}
         opacity={args.opacity}
       />
+      <Legend items={[
+        { key: 'TypeScript', label: 'TypeScript' },
+        { key: 'React', label: 'React' },
+        { key: 'Node.js', label: 'Node.js' },
+        { key: 'GraphQL', label: 'GraphQL' },
+        { key: 'Docker', label: 'Docker' },
+        { key: 'AWS', label: 'AWS' },
+      ]} />
     </Chart>
   ),
 };

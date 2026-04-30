@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback } from 'react';
-import { useChartContext, useCartesianContext } from '@viskit/core';
-import type { BaseSeriesProps } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
+import type { BaseSeriesProps } from '@kodemaven/viskit-core';
 
 export interface BubbleSeriesProps<TDatum = Record<string, unknown>>
   extends BaseSeriesProps<TDatum> {

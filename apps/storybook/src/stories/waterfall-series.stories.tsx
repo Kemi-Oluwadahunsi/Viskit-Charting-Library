@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { WaterfallSeries } from '@viskit/charts';
-import { waterfallData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { WaterfallSeries, Legend } from '@kodemaven/viskit-charts';
+import { waterfallData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { WaterfallSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { WaterfallSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a waterfall chart showing how an initial value is affected by
@@ -48,7 +48,7 @@ interface Args { radius: number; connectors: boolean; positiveColor: string; neg
 type Story = StoryObj<Args>;
 
 export const Default: Story = {
-  args: { radius: 3, connectors: true, positiveColor: '#22c55e', negativeColor: '#ef4444', totalColor: '#6366f1', height: 400 },
+  args: { radius: 3, connectors: true, positiveColor: PALETTE.green, negativeColor: PALETTE.red, totalColor: PALETTE.indigo, height: 400 },
   render: (args) => (
     <Chart data={waterfallData} height={args.height}>
       <WaterfallSeries
@@ -60,6 +60,11 @@ export const Default: Story = {
         negativeColor={args.negativeColor}
         totalColor={args.totalColor}
       />
+      <Legend items={[
+        { key: 'positive', label: 'Increase', color: args.positiveColor },
+        { key: 'negative', label: 'Decrease', color: args.negativeColor },
+        { key: 'total', label: 'Total', color: args.totalColor },
+      ]} />
     </Chart>
   ),
 };

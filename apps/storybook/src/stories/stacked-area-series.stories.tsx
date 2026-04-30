@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { StackedAreaSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { StackedAreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { StackedAreaSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { StackedAreaSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders stacked filled areas using D3 stack layout. Each field
@@ -47,6 +47,10 @@ export const Default: Story = {
       <YAxis format="compact" />
       <StackedAreaSeries fields={['cost', 'profit']} colors={[PALETTE.pink, PALETTE.teal]} />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[
+        { key: 'cost', label: 'Cost', color: PALETTE.pink },
+        { key: 'profit', label: 'Profit', color: PALETTE.teal },
+      ]} />
     </Chart>
   ),
 };

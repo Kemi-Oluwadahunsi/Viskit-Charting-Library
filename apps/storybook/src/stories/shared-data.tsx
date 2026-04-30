@@ -290,3 +290,175 @@ export const streamData = [
   { t: 8, audio: 22, video: 35, text: 18, image: 11 },
   { t: 9, audio: 30, video: 28, text: 14, image: 16 },
 ];
+
+// ─────────────────────────────────────────────────
+// Phase 4 — Shared data
+// ─────────────────────────────────────────────────
+
+// ── Parallel coordinates (multi-axis) ───────────
+export const parallelData = [
+  { name: 'Alpha', speed: 82, reliability: 90, cost: 45, latency: 12, uptime: 99 },
+  { name: 'Beta', speed: 68, reliability: 75, cost: 32, latency: 25, uptime: 95 },
+  { name: 'Gamma', speed: 95, reliability: 60, cost: 72, latency: 8, uptime: 88 },
+  { name: 'Delta', speed: 55, reliability: 85, cost: 28, latency: 35, uptime: 97 },
+  { name: 'Epsilon', speed: 78, reliability: 70, cost: 55, latency: 18, uptime: 92 },
+  { name: 'Zeta', speed: 90, reliability: 80, cost: 60, latency: 10, uptime: 96 },
+];
+
+// ── Calendar heatmap (365 days) ─────────────────
+export const calendarData = (() => {
+  const result: { date: string; commits: number }[] = [];
+  const start = new Date('2024-01-01');
+  let seed = 7;
+  for (let d = 0; d < 365; d++) {
+    const dt = new Date(start);
+    dt.setDate(start.getDate() + d);
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    const isWeekend = dt.getDay() === 0 || dt.getDay() === 6;
+    const commits = isWeekend ? (seed % 4) : (seed % 12);
+    result.push({ date: dt.toISOString().slice(0, 10), commits });
+  }
+  return result;
+})();
+
+// ── Ridgeline (multi-distribution) ──────────────
+export const ridgelineData = Array.from({ length: 60 }, (_, i) => {
+  const x = i;
+  return {
+    x,
+    desktop: Math.sin(i / 5) * 20 + 40 + (i % 7),
+    mobile: Math.cos(i / 4) * 15 + 35 + (i % 5),
+    tablet: Math.sin(i / 3) * 10 + 25 + (i % 3),
+  };
+});
+
+// ── Marimekko (variable-width stacked) ──────────
+export const marimekkoData = [
+  { region: 'NA', width: 35, desktop: 55, mobile: 35, tablet: 10 },
+  { region: 'EU', width: 30, desktop: 48, mobile: 40, tablet: 12 },
+  { region: 'APAC', width: 25, desktop: 30, mobile: 60, tablet: 10 },
+  { region: 'LATAM', width: 10, desktop: 25, mobile: 65, tablet: 10 },
+];
+
+// ── Word cloud ──────────────────────────────────
+export const wordCloudData = [
+  { word: 'React', frequency: 120 },
+  { word: 'TypeScript', frequency: 95 },
+  { word: 'JavaScript', frequency: 88 },
+  { word: 'Node', frequency: 72 },
+  { word: 'CSS', frequency: 65 },
+  { word: 'GraphQL', frequency: 58 },
+  { word: 'Docker', frequency: 52 },
+  { word: 'Kubernetes', frequency: 48 },
+  { word: 'Rust', frequency: 45 },
+  { word: 'Python', frequency: 85 },
+  { word: 'Go', frequency: 55 },
+  { word: 'Svelte', frequency: 42 },
+  { word: 'Tailwind', frequency: 68 },
+  { word: 'Vite', frequency: 60 },
+  { word: 'Next.js', frequency: 75 },
+  { word: 'PostgreSQL', frequency: 50 },
+  { word: 'Redis', frequency: 40 },
+  { word: 'AWS', frequency: 70 },
+  { word: 'Azure', frequency: 38 },
+  { word: 'Linux', frequency: 62 },
+];
+
+// ── Gantt (project timeline) ────────────────────
+export const ganttData = [
+  { task: 'Research', start: 0, end: 15, progress: 100 },
+  { task: 'Design', start: 10, end: 30, progress: 85 },
+  { task: 'Frontend', start: 25, end: 55, progress: 60 },
+  { task: 'Backend', start: 20, end: 50, progress: 70 },
+  { task: 'Testing', start: 45, end: 65, progress: 30 },
+  { task: 'Deploy', start: 60, end: 70, progress: 0 },
+];
+
+// ── Density contour (2D scatter + density) ──────
+export const densityData = (() => {
+  const result: { x: number; y: number }[] = [];
+  let seed = 42;
+  for (let i = 0; i < 200; i++) {
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    const cx = i < 100 ? 40 : 70;
+    const cy = i < 100 ? 60 : 35;
+    result.push({
+      x: cx + ((seed % 40) - 20),
+      y: cy + (((seed >> 8) % 30) - 15),
+    });
+  }
+  return result;
+})();
+
+// ─────────────────────────────────────────────────
+// Phase 5 — Shared data
+// ─────────────────────────────────────────────────
+
+// ── Pyramid (population by age group) ───────────
+export const pyramidData = [
+  { ageGroup: '0–14', population: 26000 },
+  { ageGroup: '15–24', population: 18000 },
+  { ageGroup: '25–34', population: 22000 },
+  { ageGroup: '35–44', population: 28000 },
+  { ageGroup: '45–54', population: 32000 },
+  { ageGroup: '55–64', population: 24000 },
+  { ageGroup: '65–74', population: 16000 },
+  { ageGroup: '75+', population: 9000 },
+];
+
+// ── Diverging bar (male vs female by age) ───────
+export const divergingData = [
+  { ageGroup: '0–14', male: 13200, female: 12800 },
+  { ageGroup: '15–24', male: 9400, female: 8600 },
+  { ageGroup: '25–34', male: 11500, female: 10500 },
+  { ageGroup: '35–44', male: 14200, female: 13800 },
+  { ageGroup: '45–54', male: 16800, female: 15200 },
+  { ageGroup: '55–64', male: 11600, female: 12400 },
+  { ageGroup: '65–74', male: 7200, female: 8800 },
+  { ageGroup: '75+', male: 3600, female: 5400 },
+];
+
+// ── Venn sets ───────────────────────────────────
+export const vennSets = [
+  { key: 'JS', label: 'JavaScript', size: 180 },
+  { key: 'TS', label: 'TypeScript', size: 140 },
+  { key: 'React', label: 'React', size: 120 },
+];
+export const vennIntersections = [
+  { sets: ['JS', 'TS'], size: 90, label: '90' },
+  { sets: ['JS', 'React'], size: 70, label: '70' },
+  { sets: ['TS', 'React'], size: 85, label: '85' },
+  { sets: ['JS', 'TS', 'React'], size: 55, label: '55' },
+];
+
+// ── Timeline events ─────────────────────────────
+export const timelineEvents = [
+  { event: 'Kickoff', date: 0, endDate: 5, category: 'Planning' },
+  { event: 'Research', date: 3, endDate: 15, category: 'Planning' },
+  { event: 'Design', date: 12, endDate: 28, category: 'Design' },
+  { event: 'Prototype', date: 22, endDate: 35, category: 'Design' },
+  { event: 'Frontend', date: 30, endDate: 55, category: 'Dev' },
+  { event: 'Backend', date: 32, endDate: 52, category: 'Dev' },
+  { event: 'QA', date: 48, endDate: 62, category: 'Testing' },
+  { event: 'Launch', date: 60, endDate: 65, category: 'Release' },
+];
+
+// ── Comparison (year-over-year) ─────────────────
+export const comparisonData = [
+  { metric: 'Revenue', fy2023: 120, fy2024: 145 },
+  { metric: 'Users', fy2023: 85, fy2024: 112 },
+  { metric: 'Orders', fy2023: 95, fy2024: 108 },
+  { metric: 'ARPU', fy2023: 68, fy2024: 82 },
+  { metric: 'Retention', fy2023: 72, fy2024: 78 },
+  { metric: 'NPS', fy2023: 55, fy2024: 71 },
+];
+
+// ── Donut data ──────────────────────────────────
+export const donutData = [
+  { category: 'Engineering', budget: 45000 },
+  { category: 'Marketing', budget: 28000 },
+  { category: 'Sales', budget: 32000 },
+  { category: 'Operations', budget: 18000 },
+  { category: 'HR', budget: 12000 },
+  { category: 'R&D', budget: 22000 },
+];

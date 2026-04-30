@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { ViolinSeries } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { ViolinSeries, Legend } from '@kodemaven/viskit-charts';
 import { violinData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { ViolinSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { ViolinSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders violin plots — mirrored kernel density estimations showing the
@@ -57,6 +57,7 @@ export const Default: Story = {
         opacity={args.opacity}
         showMedian={args.showMedian}
       />
+      <Legend items={[{ key: 'value', label: 'Density Distribution', color: args.color }]} />
     </Chart>
   ),
 };

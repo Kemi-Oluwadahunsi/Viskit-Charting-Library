@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { TreemapSeries } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { TreemapSeries, Legend } from '@kodemaven/viskit-charts';
 import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { TreemapSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { TreemapSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a treemap layout where each node is a rectangle sized proportionally
@@ -48,7 +48,7 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { tile: 'squarify', padding: 2, radius: 4, opacity: 0.9, height: 400 },
   render: (args) => (
-    <Chart data={hierarchyData} height={args.height}>
+    <Chart data={hierarchyData} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet, PALETTE.cyan, PALETTE.orange, PALETTE.green]}>
       <TreemapSeries
         field="value"
         nameField="name"
@@ -58,6 +58,11 @@ export const Default: Story = {
         radius={args.radius}
         opacity={args.opacity}
       />
+      <Legend items={[
+        { key: 'Frontend', label: 'Frontend' },
+        { key: 'Backend', label: 'Backend' },
+        { key: 'Data', label: 'Data' },
+      ]} />
     </Chart>
   ),
 };

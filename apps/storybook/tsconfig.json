@@ -2,12 +2,15 @@
   "extends": "../../tooling/tsconfig/app.json",
   "compilerOptions": {
     "outDir": "./dist",
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "paths": {
-      "@viskit/core": ["../../packages/core/dist/index.d.ts"],
-      "@viskit/charts": ["../../packages/charts/dist/index.d.ts"],
-      "@viskit/themes": ["../../packages/themes/dist/index.d.ts"],
-      "@viskit/animations": ["../../packages/animations/dist/index.d.ts"],
-      "@viskit/react": ["../../packages/react/dist/index.d.ts"]
+      "@kodemaven/viskit-core": ["../../packages/core/dist/index.d.ts"],
+      "@kodemaven/viskit-charts": ["../../packages/charts/dist/index.d.ts"],
+      "@kodemaven/viskit-themes": ["../../packages/themes/dist/index.d.ts"],
+      "@kodemaven/viskit-animations": ["../../packages/animations/dist/index.d.ts"],
+      "viskit-react": ["../../packages/react/dist/index.d.ts"]
     }
   },
   "include": ["src", ".storybook"]

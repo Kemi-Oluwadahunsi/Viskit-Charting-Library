@@ -17,7 +17,7 @@ import {
   type HierarchyRectangularNode,
 } from 'd3-hierarchy';
 import { arc as d3Arc } from 'd3-shape';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface SunburstSeriesProps<TDatum = Record<string, unknown>> {
   /** Numeric field for arc size */

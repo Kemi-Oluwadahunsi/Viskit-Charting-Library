@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { ChordDiagram } from '@viskit/charts';
-import { chordLabels, chordMatrix, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { ChordDiagram, Legend } from '@kodemaven/viskit-charts';
+import { chordLabels, chordMatrix, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { ChordDiagram } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { ChordDiagram } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a chord diagram showing weighted bi-directional relationships
@@ -44,8 +44,15 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { padAngle: 0.04, ribbonOpacity: 0.6, height: 450 },
   render: (args) => (
-    <Chart data={[]} height={args.height}>
+    <Chart data={[]} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet]}>
       <ChordDiagram matrix={chordMatrix} labels={chordLabels} padAngle={args.padAngle} ribbonOpacity={args.ribbonOpacity} />
+      <Legend items={[
+        { key: 'Eng', label: 'Engineering' },
+        { key: 'Design', label: 'Design' },
+        { key: 'PM', label: 'Product' },
+        { key: 'QA', label: 'QA' },
+        { key: 'DevOps', label: 'DevOps' },
+      ]} />
     </Chart>
   ),
 };

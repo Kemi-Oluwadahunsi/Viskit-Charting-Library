@@ -24,7 +24,7 @@ import {
   sankeyJustify,
 } from 'd3-sankey';
 import type { SankeyNodeMinimal, SankeyLinkMinimal } from 'd3-sankey';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 type SankeyAlign = 'left' | 'right' | 'center' | 'justify';
 

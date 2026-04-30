@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { useCartesianContext } from '@viskit/core';
-import type { FormatFunction } from '@viskit/core';
-import { useFormat } from '@viskit/core';
+import { useCartesianContext } from '@kodemaven/viskit-core';
+import type { FormatFunction } from '@kodemaven/viskit-core';
+import { useFormat } from '@kodemaven/viskit-core';
 
 export interface XAxisProps {
   /** Position of the axis relative to the plot area */

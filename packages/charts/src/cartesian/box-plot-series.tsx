@@ -17,7 +17,7 @@
 // ─────────────────────────────────────────────────
 
 import { useMemo, useState, useCallback } from 'react';
-import { useChartContext, useCartesianContext } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
 
 export interface BoxPlotSeriesProps<TDatum = Record<string, unknown>> {
   /** Field for the median value */

@@ -12,8 +12,8 @@
 
 import { useMemo, useId, useState, useCallback } from 'react';
 import { area, line as d3Line, curveBasis, curveCardinal, curveCatmullRom, curveLinear, curveMonotoneX, curveNatural, curveStep } from 'd3-shape';
-import { useChartContext, useCartesianContext } from '@viskit/core';
-import type { BaseSeriesProps } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
+import type { BaseSeriesProps } from '@kodemaven/viskit-core';
 
 type CurveType = 'linear' | 'monotone' | 'step' | 'basis' | 'cardinal' | 'catmull-rom' | 'natural';
 

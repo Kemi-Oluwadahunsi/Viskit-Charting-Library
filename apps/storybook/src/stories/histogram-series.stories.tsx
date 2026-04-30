@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { HistogramSeries } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { HistogramSeries, Legend } from '@kodemaven/viskit-charts';
 import { histogramRaw, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { HistogramSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { HistogramSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a frequency distribution chart. Automatically bins numeric
@@ -69,6 +69,7 @@ export const Default: Story = {
         gradientFill={args.gradientFill}
         opacity={args.opacity}
       />
+      <Legend items={[{ key: 'score', label: 'Score Distribution', color: args.color }]} />
     </Chart>
   ),
 };

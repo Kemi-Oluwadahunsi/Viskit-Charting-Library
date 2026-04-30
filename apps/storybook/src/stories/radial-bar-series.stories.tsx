@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { RadialBarSeries } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { RadialBarSeries, Legend } from '@kodemaven/viskit-charts';
 import { radialBarData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { RadialBarSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { RadialBarSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders concentric arcs where each data point is a ring.
@@ -63,6 +63,13 @@ export const Default: Story = {
         cornerRadius={args.cornerRadius}
         opacity={args.opacity}
       />
+      <Legend items={[
+        { key: 'React', label: 'React' },
+        { key: 'Vue', label: 'Vue' },
+        { key: 'Angular', label: 'Angular' },
+        { key: 'Svelte', label: 'Svelte' },
+        { key: 'Solid', label: 'Solid' },
+      ]} />
     </Chart>
   ),
 };

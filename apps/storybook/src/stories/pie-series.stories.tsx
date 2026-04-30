@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { PieSeries, Tooltip } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { PieSeries, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { pieData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { PieSeries, Tooltip } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { PieSeries, Tooltip } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a pie or donut chart. Supports inner radius for donuts,
@@ -50,7 +50,7 @@ type Story = StoryObj<PieArgs>;
 export const Default: Story = {
   args: { innerRadius: 0, padAngle: 0.02, cornerRadius: 3, opacity: 0.9, height: 400, tooltipVariant: 'outline' },
   render: (args) => (
-    <Chart data={pieData} height={args.height} title="Device Share">
+    <Chart data={pieData} height={args.height} title="Device Share" colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet]}>
       <PieSeries
         field="value"
         nameField="label"
@@ -60,6 +60,13 @@ export const Default: Story = {
         opacity={args.opacity}
       />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[
+        { key: 'Desktop', label: 'Desktop' },
+        { key: 'Mobile', label: 'Mobile' },
+        { key: 'Tablet', label: 'Tablet' },
+        { key: 'Smart TV', label: 'Smart TV' },
+        { key: 'Wearable', label: 'Wearable' },
+      ]} />
     </Chart>
   ),
 };

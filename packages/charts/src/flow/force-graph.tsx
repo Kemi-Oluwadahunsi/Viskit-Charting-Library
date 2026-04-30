@@ -23,8 +23,8 @@ import {
   forceCollide,
   type SimulationNodeDatum,
 } from 'd3-force';
-import { useChartContext } from '@viskit/core';
-import { useReducedMotion } from '@viskit/animations';
+import { useChartContext } from '@kodemaven/viskit-core';
+import { useReducedMotion } from '@kodemaven/viskit-animations';
 
 export interface ForceNode {
   id: string;

@@ -16,7 +16,7 @@ import {
   pack as d3Pack,
   type HierarchyCircularNode,
 } from 'd3-hierarchy';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface CirclePackingSeriesProps<TDatum = Record<string, unknown>> {
   /** Numeric field for circle size */

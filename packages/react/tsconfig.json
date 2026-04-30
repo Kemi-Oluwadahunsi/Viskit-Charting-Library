@@ -3,10 +3,10 @@
   "compilerOptions": {
     "outDir": "./dist",
     "paths": {
-      "@viskit/core": ["../core/dist/index.d.ts"],
-      "@viskit/themes": ["../themes/dist/index.d.ts"],
-      "@viskit/animations": ["../animations/dist/index.d.ts"],
-      "@viskit/charts": ["../charts/dist/index.d.ts"]
+      "@kodemaven/viskit-core": ["../core/dist/index.d.ts"],
+      "@kodemaven/viskit-themes": ["../themes/dist/index.d.ts"],
+      "@kodemaven/viskit-animations": ["../animations/dist/index.d.ts"],
+      "@kodemaven/viskit-charts": ["../charts/dist/index.d.ts"]
     }
   },
   "include": ["src"]

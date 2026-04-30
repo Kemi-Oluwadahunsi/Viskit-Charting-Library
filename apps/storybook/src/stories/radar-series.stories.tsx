@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { RadarSeries } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { RadarSeries, Legend } from '@kodemaven/viskit-charts';
 import { radarMulti, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { RadarSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { RadarSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a radar (spider) chart with one polygon per value field
@@ -76,6 +76,10 @@ export const Default: Story = {
         showLabels={args.showLabels}
         labelSize={args.labelSize}
       />
+      <Legend items={[
+        { key: 'team_a', label: 'Team A', color: PALETTE.indigo },
+        { key: 'team_b', label: 'Team B', color: PALETTE.pink },
+      ]} />
     </Chart>
   ),
 };

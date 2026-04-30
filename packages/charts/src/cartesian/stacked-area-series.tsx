@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback, useId } from 'react';
 import { area, stack as d3Stack, stackOrderNone, stackOffsetNone, curveBasis, curveCardinal, curveCatmullRom, curveLinear, curveMonotoneX, curveNatural, curveStep } from 'd3-shape';
-import { useChartContext, useCartesianContext } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
 
 type CurveType = 'linear' | 'monotone' | 'step' | 'basis' | 'cardinal' | 'catmull-rom' | 'natural';
 

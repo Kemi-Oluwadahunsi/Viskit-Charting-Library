@@ -1,8 +1,8 @@
 import { useMemo, useState, useCallback, useId } from 'react';
 import { bin as d3Bin } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
-import { useChartContext } from '@viskit/core';
-import type { Dimensions } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
+import type { Dimensions } from '@kodemaven/viskit-core';
 
 export interface HistogramSeriesProps<TDatum = Record<string, unknown>> {
   field: keyof TDatum & string;

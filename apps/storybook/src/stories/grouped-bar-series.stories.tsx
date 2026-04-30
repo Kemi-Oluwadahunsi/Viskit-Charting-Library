@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { GroupedBarSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { GroupedBarSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { GroupedBarSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { GroupedBarSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders side-by-side bars for multiple fields within each category.
@@ -51,6 +51,10 @@ export const Default: Story = {
       <YAxis format="compact" />
       <GroupedBarSeries fields={['cost', 'profit']} colors={[PALETTE.rose, PALETTE.green]} radius={args.radius} opacity={args.opacity} />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[
+        { key: 'cost', label: 'Cost', color: PALETTE.rose },
+        { key: 'profit', label: 'Profit', color: PALETTE.green },
+      ]} />
     </Chart>
   ),
 };

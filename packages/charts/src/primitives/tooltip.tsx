@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, type ReactNode, type MouseEvent } from 'react';
-import { useChartContext, useCartesianContext } from '@viskit/core';
-import type { TooltipPayload, FormatFunction } from '@viskit/core';
-import { useFormat } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
+import type { TooltipPayload, FormatFunction } from '@kodemaven/viskit-core';
+import { useFormat } from '@kodemaven/viskit-core';
 import { TooltipContent } from './tooltip-content';
 import type { TooltipVariant } from './tooltip-content';
 

@@ -17,8 +17,8 @@
 // ─────────────────────────────────────────────────
 
 import { useMemo, useState, useCallback, useId } from 'react';
-import { useChartContext, useCartesianContext } from '@viskit/core';
-import type { BaseSeriesProps } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
+import type { BaseSeriesProps } from '@kodemaven/viskit-core';
 
 export interface BarSeriesProps<TDatum = Record<string, unknown>>
   extends BaseSeriesProps<TDatum> {

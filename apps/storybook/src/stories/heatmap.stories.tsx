@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { Heatmap } from '@viskit/charts';
-import { heatmapData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { Heatmap, Legend } from '@kodemaven/viskit-charts';
+import { heatmapData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { Heatmap } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { Heatmap } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a grid of colored cells where color intensity represents
@@ -55,6 +55,10 @@ export const Default: Story = {
   render: (args) => (
     <Chart data={heatmapData} height={args.height} title="Activity Heatmap">
       <Heatmap xField="hour" yField="day" valueField="activity" />
+      <Legend items={[
+        { key: 'low', label: 'Low Activity', color: '#dbeafe' },
+        { key: 'high', label: 'High Activity', color: PALETTE.indigo },
+      ]} />
     </Chart>
   ),
 };

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { CirclePackingSeries } from '@viskit/charts';
-import { hierarchyData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { CirclePackingSeries, Legend } from '@kodemaven/viskit-charts';
+import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { CirclePackingSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { CirclePackingSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a circle-packing layout where nested circles represent hierarchical
@@ -44,8 +44,13 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { padding: 4, opacity: 0.8, height: 450 },
   render: (args) => (
-    <Chart data={hierarchyData} height={args.height}>
+    <Chart data={hierarchyData} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet, PALETTE.cyan, PALETTE.orange, PALETTE.green]}>
       <CirclePackingSeries field="value" nameField="name" groupField="group" padding={args.padding} opacity={args.opacity} />
+      <Legend items={[
+        { key: 'Frontend', label: 'Frontend' },
+        { key: 'Backend', label: 'Backend' },
+        { key: 'Data', label: 'Data' },
+      ]} />
     </Chart>
   ),
 };

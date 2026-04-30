@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { DumbbellSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { DumbbellSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { dumbbellData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { DumbbellSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { DumbbellSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders paired dots connected by a line — perfect for before/after,
@@ -56,6 +56,10 @@ export const Default: Story = {
       <YAxis />
       <DumbbellSeries fieldStart="before" fieldEnd="after" colorStart={args.colorStart} colorEnd={args.colorEnd} />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[
+        { key: 'before', label: 'Before', color: args.colorStart },
+        { key: 'after', label: 'After', color: args.colorEnd },
+      ]} />
     </Chart>
   ),
 };

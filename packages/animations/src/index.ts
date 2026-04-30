@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────
-// @viskit/animations — Public API
+// @kodemaven/viskit-animations — Public API
 // ─────────────────────────────────────────────────
 
 export { useReducedMotion } from './use-reduced-motion';

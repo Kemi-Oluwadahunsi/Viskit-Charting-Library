@@ -1,7 +1,17 @@
 {
-  "name": "@viskit/themes",
+  "name": "@kodemaven/viskit-themes",
   "version": "0.1.0",
-  "private": true,
+  "description": "Theme tokens, built-in themes, and CSS bridge for VisKit",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kemi-Oluwadahunsi/Viskit-Charting-Library.git",
+    "directory": "packages/themes"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["viskit", "theme", "react", "data-visualization", "design-tokens"],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

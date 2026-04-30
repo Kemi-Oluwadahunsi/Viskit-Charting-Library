@@ -17,7 +17,7 @@
 import { useMemo, useState, useCallback } from 'react';
 import { area as d3Area, curveCatmullRom } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
-import { useChartContext, useCartesianContext } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
 
 export interface ViolinSeriesProps<TDatum = Record<string, unknown>> {
   /** Numeric field for the value axis */

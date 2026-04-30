@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { SunburstSeries } from '@viskit/charts';
-import { hierarchyData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { SunburstSeries, Legend } from '@kodemaven/viskit-charts';
+import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { SunburstSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { SunburstSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a sunburst (radial treemap) where hierarchical data fans outward
@@ -47,8 +47,13 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { innerRadius: 0.15, padAngle: 0.01, cornerRadius: 3, height: 450 },
   render: (args) => (
-    <Chart data={hierarchyData} height={args.height}>
+    <Chart data={hierarchyData} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet, PALETTE.cyan, PALETTE.orange, PALETTE.green]}>
       <SunburstSeries field="value" nameField="name" groupField="group" innerRadius={args.innerRadius} padAngle={args.padAngle} cornerRadius={args.cornerRadius} />
+      <Legend items={[
+        { key: 'Frontend', label: 'Frontend' },
+        { key: 'Backend', label: 'Backend' },
+        { key: 'Data', label: 'Data' },
+      ]} />
     </Chart>
   ),
 };

@@ -1,10 +1,10 @@
 import { useState, useCallback, useMemo } from 'react';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface LegendProps {
   /** Position relative to chart (default: 'bottom') */
   position?: 'top' | 'bottom' | 'left' | 'right';
-  /** Layout direction (default: 'horizontal') */
+  /** Layout direction. Auto-detected from position if omitted. */
   layout?: 'horizontal' | 'vertical';
   /** Series keys and labels to show. Auto-detected from data if omitted. */
   items?: LegendItem[];
@@ -30,15 +30,16 @@ export interface LegendItem {
 }
 
 export function Legend({
+  position = 'bottom',
   items: itemsProp,
-  layout = 'horizontal',
+  layout: layoutProp,
   onToggle,
   swatchSize = 10,
   fontSize = 12,
   color = '#94A3B8',
-  gap = 20,
+  gap = 10,
 }: LegendProps) {
-  const { colorScale, data } = useChartContext();
+  const { colorScale, data, dimensions } = useChartContext();
   const [hidden, setHidden] = useState<Set<string>>(new Set());
 
   const items: LegendItem[] = useMemo(() => {
@@ -64,55 +65,97 @@ export function Legend({
     });
   }, [onToggle]);
 
-  const isVertical = layout === 'vertical';
+  const isVertical = layoutProp
+    ? layoutProp === 'vertical'
+    : (position === 'left' || position === 'right');
+
+  const { innerWidth, innerHeight } = dimensions;
+
+  const foProps = useMemo(() => {
+    switch (position) {
+      case 'bottom':
+        return { x: 0, y: innerHeight + 30, width: innerWidth, height: 60 };
+      case 'top':
+        return { x: 0, y: -50, width: innerWidth, height: 44 };
+      case 'right':
+        return { x: innerWidth + 12, y: 0, width: 120, height: innerHeight };
+      case 'left':
+        return { x: -120, y: 0, width: 110, height: innerHeight };
+    }
+  }, [position, innerWidth, innerHeight]);
 
   return (
-    <g aria-label="Chart legend" role="list">
-      {items.map((item, i) => {
-        const isHidden = hidden.has(item.key);
-        const resolvedColor = item.color ?? colorScale(item.key);
-        const offset = i * (isVertical ? (swatchSize + gap) : 0);
-        const xOffset = isVertical ? 0 : i * ((item.label.length * fontSize * 0.6) + swatchSize + gap);
-        const yOffset = isVertical ? offset : 0;
-
-        return (
-          <g
-            key={item.key}
-            transform={`translate(${xOffset}, ${yOffset})`}
-            role="listitem"
-            style={{ cursor: 'pointer' }}
-            onClick={() => handleClick(item.key)}
-            opacity={isHidden ? 0.3 : 1}
-          >
-            <rect
-              width={swatchSize}
-              height={swatchSize}
-              rx={2}
-              fill={resolvedColor}
-            />
-            {isHidden && (
-              <line
-                x1={0}
-                x2={swatchSize}
-                y1={swatchSize / 2}
-                y2={swatchSize / 2}
-                stroke="#fff"
-                strokeWidth={1.5}
-              />
-            )}
-            <text
-              x={swatchSize + 6}
-              y={swatchSize / 2}
-              dominantBaseline="central"
-              fill={color}
-              fontSize={fontSize}
-              style={{ userSelect: 'none' }}
+    <foreignObject
+      x={foProps.x}
+      y={foProps.y}
+      width={foProps.width}
+      height={foProps.height}
+      overflow="visible"
+      aria-label="Chart legend"
+      role="list"
+    >
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: isVertical ? 'column' : 'row',
+          flexWrap: 'wrap',
+          justifyContent: isVertical ? 'flex-start' : 'center',
+          alignItems: isVertical ? 'flex-start' : 'center',
+          gap: `${isVertical ? 4 : 4}px ${gap}px`,
+          width: '100%',
+        }}
+      >
+        {items.map((item) => {
+          const isHidden = hidden.has(item.key);
+          const resolvedColor = item.color ?? colorScale(item.key);
+          return (
+            <div
+              key={item.key}
+              role="listitem"
+              onClick={() => handleClick(item.key)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 4,
+                cursor: 'pointer',
+                opacity: isHidden ? 0.3 : 1,
+                userSelect: 'none',
+                whiteSpace: 'nowrap',
+                lineHeight: 1,
+              }}
             >
-              {item.label}
-            </text>
-          </g>
-        );
-      })}
-    </g>
+              <span
+                style={{
+                  display: 'inline-block',
+                  width: swatchSize,
+                  height: swatchSize,
+                  minWidth: swatchSize,
+                  borderRadius: 2,
+                  backgroundColor: resolvedColor,
+                  position: 'relative',
+                }}
+              >
+                {isHidden && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: 0,
+                      right: 0,
+                      height: 1.5,
+                      backgroundColor: '#fff',
+                      transform: 'translateY(-50%)',
+                    }}
+                  />
+                )}
+              </span>
+              <span style={{ fontSize, color, lineHeight: 1 }}>
+                {item.label}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </foreignObject>
   );
 }

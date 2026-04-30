@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { BarSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { BarSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { monthlyMetrics, trafficSources, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { BarSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { BarSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders vertical bars for each data point. Supports gradient fills,
@@ -57,6 +57,7 @@ export const Default: Story = {
       <YAxis format="compact" />
       <BarSeries field={args.field} color={args.color} radius={args.radius} opacity={args.opacity} gradientFill={args.gradientFill} />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[{ key: args.field, label: 'Revenue', color: args.color }]} />
     </Chart>
   ),
 };

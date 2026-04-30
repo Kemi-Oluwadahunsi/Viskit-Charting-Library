@@ -1,8 +1,8 @@
 import { useMemo, useState, useCallback } from 'react';
 import { scaleLinear, scaleBand, scaleSequential } from 'd3-scale';
 import { interpolateBlues } from 'd3-scale-chromatic';
-import { useChartContext } from '@viskit/core';
-import type { Dimensions } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
+import type { Dimensions } from '@kodemaven/viskit-core';
 
 export interface HeatmapProps<TDatum = Record<string, unknown>> {
   xField: keyof TDatum & string;

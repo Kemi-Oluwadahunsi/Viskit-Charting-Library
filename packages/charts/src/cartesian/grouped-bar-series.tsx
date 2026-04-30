@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback, useId } from 'react';
 import { scaleBand } from 'd3-scale';
-import { useChartContext, useCartesianContext } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
 
 export interface GroupedBarSeriesProps<TDatum = Record<string, unknown>> {
   fields: (keyof TDatum & string)[];

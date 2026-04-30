@@ -20,7 +20,7 @@ import {
   treemapDice,
   type HierarchyRectangularNode,
 } from 'd3-hierarchy';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 type TileMethod = 'squarify' | 'binary' | 'slice' | 'dice';
 

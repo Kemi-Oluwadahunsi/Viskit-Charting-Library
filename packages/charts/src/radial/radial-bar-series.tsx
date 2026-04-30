@@ -1,8 +1,8 @@
 import { useMemo, useState, useCallback, useId } from 'react';
 import { arc as d3Arc } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
-import { useChartContext } from '@viskit/core';
-import type { Dimensions } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
+import type { Dimensions } from '@kodemaven/viskit-core';
 
 export interface RadialBarSeriesProps<TDatum = Record<string, unknown>> {
   field: keyof TDatum & string;

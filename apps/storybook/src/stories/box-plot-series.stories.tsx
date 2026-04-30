@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { BoxPlotSeries } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { BoxPlotSeries, Legend } from '@kodemaven/viskit-charts';
 import { boxPlotData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { BoxPlotSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { BoxPlotSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders box-and-whisker plots showing statistical distribution. Each box
@@ -61,6 +61,7 @@ export const Default: Story = {
         color={args.color}
         opacity={args.opacity}
       />
+      <Legend items={[{ key: 'median', label: 'Distribution', color: args.color }]} />
     </Chart>
   ),
 };

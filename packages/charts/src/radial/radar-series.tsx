@@ -1,8 +1,8 @@
 import { useMemo, useState, useCallback } from 'react';
 import { lineRadial, curveLinearClosed } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
-import { useChartContext } from '@viskit/core';
-import type { Dimensions } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
+import type { Dimensions } from '@kodemaven/viskit-core';
 
 export interface RadarSeriesProps<TDatum = Record<string, unknown>> {
   dimensionField: keyof TDatum & string;

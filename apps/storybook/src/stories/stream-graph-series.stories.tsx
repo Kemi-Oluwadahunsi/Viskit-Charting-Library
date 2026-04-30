@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { StreamGraphSeries } from '@viskit/charts';
-import { streamData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { StreamGraphSeries, Legend } from '@kodemaven/viskit-charts';
+import { streamData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { StreamGraphSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { StreamGraphSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a stream graph (stacked area with wiggle offset) showing how
@@ -41,8 +41,14 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { opacity: 0.8, height: 400 },
   render: (args) => (
-    <Chart data={streamData} height={args.height}>
+    <Chart data={streamData} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber]}>
       <StreamGraphSeries fields={['audio', 'video', 'text', 'image']} opacity={args.opacity} />
+      <Legend items={[
+        { key: 'audio', label: 'Audio' },
+        { key: 'video', label: 'Video' },
+        { key: 'text', label: 'Text' },
+        { key: 'image', label: 'Image' },
+      ]} />
     </Chart>
   ),
 };

@@ -12,8 +12,8 @@
 
 import { useMemo, useState, useCallback } from 'react';
 import { pie as d3Pie, arc as d3Arc } from 'd3-shape';
-import { useChartContext } from '@viskit/core';
-import type { BaseSeriesProps } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
+import type { BaseSeriesProps } from '@kodemaven/viskit-core';
 
 export interface PieSeriesProps<TDatum = Record<string, unknown>>
   extends BaseSeriesProps<TDatum> {

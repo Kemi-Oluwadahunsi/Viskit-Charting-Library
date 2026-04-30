@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────
-// @viskit/core — Public API
+// @kodemaven/viskit-core — Public API
 // ─────────────────────────────────────────────────
 // This is the main entry point for the core package.
 // Every public type, hook, component, and utility

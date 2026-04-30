@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { SlopeSeries } from '@viskit/charts';
-import { slopeData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { SlopeSeries, Legend } from '@kodemaven/viskit-charts';
+import { slopeData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { SlopeSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { SlopeSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a slope chart comparing two values per item across a before/after
@@ -49,8 +49,12 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { gutterWidth: 60, dotRadius: 5, strokeWidth: 2, opacity: 0.8, height: 400 },
   render: (args) => (
-    <Chart data={slopeData} height={args.height}>
+    <Chart data={slopeData} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet]}>
       <SlopeSeries startField="q1" endField="q2" nameField="team" gutterWidth={args.gutterWidth} dotRadius={args.dotRadius} strokeWidth={args.strokeWidth} opacity={args.opacity} />
+      <Legend items={[
+        { key: 'q1', label: 'Q1 (Before)' },
+        { key: 'q2', label: 'Q2 (After)' },
+      ]} />
     </Chart>
   ),
 };

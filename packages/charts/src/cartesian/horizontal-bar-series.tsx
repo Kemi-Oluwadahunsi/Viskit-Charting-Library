@@ -1,8 +1,8 @@
 import { useMemo, useState, useCallback, useId } from 'react';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
-import { useChartContext } from '@viskit/core';
-import type { Dimensions } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
+import type { Dimensions } from '@kodemaven/viskit-core';
 
 export interface HorizontalBarSeriesProps<TDatum = Record<string, unknown>> {
   field: keyof TDatum & string;

@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────
-// @viskit/charts — Public API
+// @kodemaven/viskit-charts — Public API
 // ─────────────────────────────────────────────────
 // All chart series components are exported from here.
 // Each series is a lightweight SVG component that
@@ -118,3 +118,65 @@ export type { SlopeSeriesProps } from './cartesian/slope-series';
 // Types — Phase 3 Specialized
 export type { GaugeSeriesProps } from './specialized/gauge-series';
 export type { StreamGraphSeriesProps } from './cartesian/stream-graph-series';
+
+// Phase 4 — Exotic chart types
+export { ParallelCoordinatesSeries } from './cartesian/parallel-coordinates';
+export { RidgeLineSeries } from './cartesian/ridgeline-series';
+export { MarimekkoSeries } from './cartesian/marimekko-series';
+export { GanttSeries } from './cartesian/gantt-series';
+export { CalendarHeatmap } from './specialized/calendar-heatmap';
+export { WordCloud } from './specialized/word-cloud';
+export { DensityContour } from './specialized/density-contour';
+
+// Phase 4 — Composition
+export { ChartGroup, useChartGroup } from './composition/chart-group';
+export { Brush } from './composition/brush';
+
+// Phase 4 — Interaction primitives
+export { ReferenceLine } from './primitives/reference-line';
+export { ReferenceBand } from './primitives/reference-band';
+export { CrosshairOverlay } from './primitives/crosshair-overlay';
+export { Annotations } from './primitives/annotations';
+
+// Phase 4 — Utilities
+export { exportToPNG, exportToSVG } from './utils/export';
+export { useStreamingData } from './hooks/use-streaming-data';
+
+// Types — Phase 4 Exotic
+export type { ParallelCoordinatesSeriesProps } from './cartesian/parallel-coordinates';
+export type { RidgeLineSeriesProps } from './cartesian/ridgeline-series';
+export type { MarimekkoSeriesProps } from './cartesian/marimekko-series';
+export type { GanttSeriesProps } from './cartesian/gantt-series';
+export type { CalendarHeatmapProps } from './specialized/calendar-heatmap';
+export type { WordCloudProps } from './specialized/word-cloud';
+export type { DensityContourProps } from './specialized/density-contour';
+
+// Types — Phase 4 Composition
+export type { ChartGroupProps } from './composition/chart-group';
+export type { BrushProps } from './composition/brush';
+
+// Types — Phase 4 Interaction primitives
+export type { ReferenceLineProps } from './primitives/reference-line';
+export type { ReferenceBandProps } from './primitives/reference-band';
+export type { CrosshairOverlayProps } from './primitives/crosshair-overlay';
+export type { AnnotationsProps, AnnotationItem } from './primitives/annotations';
+
+// Types — Phase 4 Utilities
+export type { ExportOptions } from './utils/export';
+export type { UseStreamingDataOptions, UseStreamingDataResult } from './hooks/use-streaming-data';
+
+// Phase 5 — Additional chart types
+export { PyramidSeries } from './cartesian/pyramid-series';
+export { DivergingBarSeries } from './cartesian/diverging-bar-series';
+export { TimelineSeries } from './cartesian/timeline-series';
+export { ComparisonSeries } from './cartesian/comparison-series';
+export { VennDiagram } from './specialized/venn-diagram';
+export { DonutSeries } from './radial/donut-series';
+
+// Types — Phase 5
+export type { PyramidSeriesProps } from './cartesian/pyramid-series';
+export type { DivergingBarSeriesProps } from './cartesian/diverging-bar-series';
+export type { TimelineSeriesProps } from './cartesian/timeline-series';
+export type { ComparisonSeriesProps } from './cartesian/comparison-series';
+export type { VennDiagramProps, VennSet, VennIntersection } from './specialized/venn-diagram';
+export type { DonutSeriesProps } from './radial/donut-series';

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useCartesianContext } from '@viskit/core';
+import { useCartesianContext } from '@kodemaven/viskit-core';
 
 export interface CartesianGridProps {
   /** Show horizontal grid lines (default: true) */

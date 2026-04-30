@@ -1,7 +1,17 @@
 {
-  "name": "@viskit/react",
+  "name": "viskit-react",
   "version": "0.1.0",
-  "private": true,
+  "description": "VisKit — composable React data visualization library (48 chart types)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kemi-Oluwadahunsi/Viskit-Charting-Library.git",
+    "directory": "packages/react"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["viskit", "chart", "react", "d3", "svg", "data-visualization", "typescript"],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -28,10 +38,10 @@
     "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "@viskit/core": "workspace:*",
-    "@viskit/charts": "workspace:*",
-    "@viskit/themes": "workspace:*",
-    "@viskit/animations": "workspace:*"
+    "@kodemaven/viskit-core": "workspace:*",
+    "@kodemaven/viskit-charts": "workspace:*",
+    "@kodemaven/viskit-themes": "workspace:*",
+    "@kodemaven/viskit-animations": "workspace:*"
   },
   "devDependencies": {
     "@viskit/tsconfig": "workspace:*",

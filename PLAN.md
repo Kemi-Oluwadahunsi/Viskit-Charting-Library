@@ -10,15 +10,10 @@
 VisKit is an opinionated yet flexible chart library that prioritizes:
 
 1. **Composability** — Charts are assembled from small, focused primitives (`<Chart>`, `<LineSeries>`, `<XAxis>`, `<Tooltip>`) rather than monolithic config objects. Consumers import only what they need.
-
 2. **Type Safety** — Generic components carry the datum shape through the entire tree. `<LineSeries<SalesRecord> field="revenue">` is a compile-time guarantee, not a runtime string lookup.
-
 3. **Accessibility First** — Every chart is navigable by keyboard, readable by screen readers, and responsive to `prefers-reduced-motion`. This is non-negotiable, not a Phase-4 afterthought.
-
 4. **Theme-Driven Visuals** — No component hardcodes a color, font size, spacing, or animation duration. Every visual decision flows from a token system that can be swapped at runtime.
-
 5. **Zero-Config Reasonable Defaults** — A chart should render beautifully with `<Chart data={data}><LineSeries field="value" /></Chart>`. Auto-scaling, auto-margins, auto-colors, responsive sizing — all out of the box.
-
 6. **Performance at Scale** — Memoized computation pipeline: raw data → scales → positions → render. Resizing re-runs scales, not data parsing. Canvas renderer available for 10k+ point datasets.
 
 ### What VisKit Is Not
@@ -31,25 +26,25 @@ VisKit is an opinionated yet flexible chart library that prioritizes:
 
 ## 2. Technology Stack
 
-| Layer | Technology | Version | Why |
-|-------|-----------|---------|-----|
-| UI Framework | React | 19.2.x | Concurrent features, `useId`, `forwardRef` improvements |
-| Language | TypeScript | 6.0.x | Strict mode, `satisfies`, `const` type parameters |
-| Monorepo | pnpm workspaces + Turborepo | 10.x / 2.9.x | Workspace protocol (`workspace:*`), parallel builds, caching |
-| Bundler | tsup (esbuild) | 8.x | ESM + CJS + DTS in <2s per package |
-| Dev Server | Vite | 8.x | Instant HMR for the demo app |
-| Scales | d3-scale | 4.x | 15 scale types, battle-tested math |
-| Shapes | d3-shape | 3.x | Line, area, arc, pie generators, curve factories |
-| Arrays | d3-array | 3.x | extent, max, min, bisect, ticks |
-| Hierarchies | d3-hierarchy | 3.x | Treemap, partition, tree layouts (Phase 3) |
-| Force | d3-force | 3.x | Force-directed graph simulation (Phase 3) |
-| Sankey | d3-sankey | 0.12.x | Flow diagram layout (Phase 3) |
-| Animation | @react-spring/web | 9.7.x | Physics-based springs, `useSpring`, `useTransition` |
-| Positioning | @floating-ui/react | 0.27.x | Tooltip/popover placement with collision detection |
-| Unit Testing | Vitest | 3.2.x | Vite-native, fast, compatible with Testing Library |
-| Component Testing | @testing-library/react | 16.x | DOM assertions, user-event simulation |
-| Visual Regression | Chromatic | — | Snapshot per chart × theme × viewport × state |
-| Lint | ESLint | 9.x | Flat config, `@typescript-eslint`, react-hooks rules |
+| Layer             | Technology                  | Version      | Why                                                            |
+| ----------------- | --------------------------- | ------------ | -------------------------------------------------------------- |
+| UI Framework      | React                       | 19.2.x       | Concurrent features,`useId`, `forwardRef` improvements     |
+| Language          | TypeScript                  | 6.0.x        | Strict mode,`satisfies`, `const` type parameters           |
+| Monorepo          | pnpm workspaces + Turborepo | 10.x / 2.9.x | Workspace protocol (`workspace:*`), parallel builds, caching |
+| Bundler           | tsup (esbuild)              | 8.x          | ESM + CJS + DTS in <2s per package                             |
+| Dev Server        | Vite                        | 8.x          | Instant HMR for the demo app                                   |
+| Scales            | d3-scale                    | 4.x          | 15 scale types, battle-tested math                             |
+| Shapes            | d3-shape                    | 3.x          | Line, area, arc, pie generators, curve factories               |
+| Arrays            | d3-array                    | 3.x          | extent, max, min, bisect, ticks                                |
+| Hierarchies       | d3-hierarchy                | 3.x          | Treemap, partition, tree layouts (Phase 3)                     |
+| Force             | d3-force                    | 3.x          | Force-directed graph simulation (Phase 3)                      |
+| Sankey            | d3-sankey                   | 0.12.x       | Flow diagram layout (Phase 3)                                  |
+| Animation         | @react-spring/web           | 9.7.x        | Physics-based springs,`useSpring`, `useTransition`         |
+| Positioning       | @floating-ui/react          | 0.27.x       | Tooltip/popover placement with collision detection             |
+| Unit Testing      | Vitest                      | 3.2.x        | Vite-native, fast, compatible with Testing Library             |
+| Component Testing | @testing-library/react      | 16.x         | DOM assertions, user-event simulation                          |
+| Visual Regression | Chromatic                   | —           | Snapshot per chart × theme × viewport × state               |
+| Lint              | ESLint                      | 9.x          | Flat config,`@typescript-eslint`, react-hooks rules          |
 
 ### Rendering Pipeline
 
@@ -68,7 +63,7 @@ The renderer is abstracted behind series components. `<ScatterSeries>` renders S
 ```
 viskit/
 ├── packages/
-│   ├── core/             @viskit/core          Heart of the library
+│   ├── core/             @kodemaven/viskit-core          Heart of the library
 │   │   ├── src/
 │   │   │   ├── types.ts                        All shared cross-package types
 │   │   │   ├── context/
@@ -87,7 +82,7 @@ viskit/
 │   │   │       └── chart.tsx                    Root <Chart> component
 │   │   └── index.ts                             Public API
 │   │
-│   ├── themes/           @viskit/themes         Design token system
+│   ├── themes/           @kodemaven/viskit-themes         Design token system
 │   │   ├── src/
 │   │   │   ├── tokens.ts                        VisualizationTokens interface
 │   │   │   ├── presets/
@@ -99,13 +94,13 @@ viskit/
 │   │   │   └── css-bridge.ts                    Token → CSS variable injection
 │   │   └── index.ts
 │   │
-│   ├── animations/       @viskit/animations     Motion system
+│   ├── animations/       @kodemaven/viskit-animations     Motion system
 │   │   ├── src/
 │   │   │   ├── use-reduced-motion.ts            OS prefers-reduced-motion
 │   │   │   └── spring-presets.ts                4 spring configs + resolver
 │   │   └── index.ts
 │   │
-│   ├── charts/           @viskit/charts         All visual series (42 chart types)
+│   ├── charts/           @kodemaven/viskit-charts         All visual series (42 chart types)
 │   │   ├── src/
 │   │   │   ├── cartesian/
 │   │   │   │   ├── line-series.tsx              Line + dots + curves (P1)
@@ -171,7 +166,7 @@ viskit/
 │   │   │       └── canvas-renderer.tsx          Canvas backend (P2)
 │   │   └── index.ts
 │   │
-│   └── react/            @viskit/react          Consumer barrel package
+│   └── react/            viskit-react          Consumer barrel package
 │       ├── src/
 │       │   └── index.ts                         Re-exports everything
 │       └── package.json
@@ -195,17 +190,17 @@ viskit/
 ### Package Dependency Graph
 
 ```
-@viskit/react (consumer barrel)
-  ├── @viskit/charts
-  │     ├── @viskit/core
-  │     ├── @viskit/themes
-  │     └── @viskit/animations
-  ├── @viskit/core
-  ├── @viskit/themes
-  └── @viskit/animations
+viskit-react (consumer barrel)
+  ├── @kodemaven/viskit-charts
+  │     ├── @kodemaven/viskit-core
+  │     ├── @kodemaven/viskit-themes
+  │     └── @kodemaven/viskit-animations
+  ├── @kodemaven/viskit-core
+  ├── @kodemaven/viskit-themes
+  └── @kodemaven/viskit-animations
 ```
 
-All downstream packages depend on `@viskit/core` for types and context. Turborepo builds them in topological order: `core` → `themes` + `animations` (parallel) → `charts` → `react`.
+All downstream packages depend on `@kodemaven/viskit-core` for types and context. Turborepo builds them in topological order: `core` → `themes` + `animations` (parallel) → `charts` → `react`.
 
 ---
 
@@ -272,12 +267,12 @@ Consumer data[] ──→ <Chart data={…}>
 
 When no explicit scale configuration is provided, `<Chart>` scans the first datum to auto-configure:
 
-| Field Type | Detection | Scale Type | Configuration |
-|-----------|-----------|-----------|--------------|
-| `string` | `typeof val === 'string'` | `scaleBand()` | domain = all unique values, padding = 0.2 |
-| `number` | `typeof val === 'number'` | `scaleLinear()` | domain = [0, max × 1.1], `.nice()`, inverted range |
-| `Date` | `instanceof Date` | `scaleTime()` | domain = [min, max], `.nice()` |
-| `string` (ISO date) | `Date.parse()` succeeds | `scaleTime()` | Parsed to Date objects |
+| Field Type            | Detection                   | Scale Type        | Configuration                                        |
+| --------------------- | --------------------------- | ----------------- | ---------------------------------------------------- |
+| `string`            | `typeof val === 'string'` | `scaleBand()`   | domain = all unique values, padding = 0.2            |
+| `number`            | `typeof val === 'number'` | `scaleLinear()` | domain = [0, max × 1.1],`.nice()`, inverted range |
+| `Date`              | `instanceof Date`         | `scaleTime()`   | domain = [min, max],`.nice()`                      |
+| `string` (ISO date) | `Date.parse()` succeeds   | `scaleTime()`   | Parsed to Date objects                               |
 
 The x-axis always takes the **first string field** found. The y-axis domain spans **all numeric fields** in the dataset so multiple series share the same scale by default.
 
@@ -285,15 +280,15 @@ The x-axis always takes the **first string field** found. The y-axis domain span
 
 Margins are computed from measurable content, not guessed:
 
-| Content | Space Reserved |
-|---------|---------------|
-| Base padding (always) | 8px per side |
-| X-axis tick labels | 40px |
-| X-axis label text | +24px |
-| Y-axis tick labels | 40px |
-| Y-axis label text | +24px |
-| Chart title | +28px top |
-| Legend (any side) | +32px |
+| Content               | Space Reserved |
+| --------------------- | -------------- |
+| Base padding (always) | 8px per side   |
+| X-axis tick labels    | 40px           |
+| X-axis label text     | +24px          |
+| Y-axis tick labels    | 40px           |
+| Y-axis label text     | +24px          |
+| Chart title           | +28px top      |
+| Legend (any side)     | +32px          |
 
 Consumer can override any side: `margin={{ left: 100 }}` overrides only left, auto-calculates the rest.
 
@@ -301,7 +296,7 @@ Consumer can override any side: `margin={{ left: 100 }}` overrides only left, au
 
 ## 5. Type System
 
-### Core Types (`@viskit/core/types.ts`)
+### Core Types (`@kodemaven/viskit-core/types.ts`)
 
 All shared types live in one file. Component-specific types stay colocated.
 
@@ -365,88 +360,99 @@ interface SalesRecord {
 
 ### Phase 1 — Cartesian Foundations (5 chart types + 6 primitives)
 
-| # | Component | Package | Description | Key Props |
-|---|-----------|---------|-------------|-----------|
-| — | `<Chart>` | core | Root container. Responsive SVG, ARIA, auto-scales, auto-margins | `data`, `height?`, `aspect?`, `margin?`, `colors?`, `title?` |
-| 1 | `<LineSeries>` | charts | SVG path with d3-shape line generator | `field`, `curve?`, `dots?`, `strokeWidth?`, `strokeDasharray?`, `connectNulls?` |
-| 2 | `<BarSeries>` | charts | Vertical bars via band scale | `field`, `radius?`, `gradientFill?` |
-| 3 | `<AreaSeries>` | charts | Filled area with optional gradient | `field`, `curve?`, `gradient?`, `fillOpacity?`, `strokeWidth?` |
-| 4 | `<ScatterSeries>` | charts | Circle markers at data positions | `field`, `radius?`, `symbol?` |
-| 5 | `<PieSeries>` | charts | Pie/donut arcs via d3-pie layout | `field`, `nameField?`, `innerRadius?`, `padAngle?`, `cornerRadius?` |
-| — | `<XAxis>` | charts | Bottom/top axis with tick formatting | `field?`, `position?`, `tickCount?`, `format?`, `label?` |
-| — | `<YAxis>` | charts | Left/right axis with tick formatting | `field?`, `position?`, `tickCount?`, `format?`, `label?` |
-| — | `<CartesianGrid>` | charts | Horizontal/vertical grid lines | `horizontal?`, `vertical?`, `strokeDasharray?` |
-| — | `<Tooltip>` | charts | Floating tooltip via @floating-ui | `trigger?`, `placement?`, `offset?`, `renderContent?` |
-| — | `<TooltipContent>` | charts | Default tooltip body layout | `payload`, `formatValue?` |
-| — | `<Legend>` | charts | Clickable series legend | `position?`, `layout?`, `onToggle?` |
+| #  | Component            | Package | Description                                                     | Key Props                                                                                   |
+| -- | -------------------- | ------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| — | `<Chart>`          | core    | Root container. Responsive SVG, ARIA, auto-scales, auto-margins | `data`, `height?`, `aspect?`, `margin?`, `colors?`, `title?`                    |
+| 1  | `<LineSeries>`     | charts  | SVG path with d3-shape line generator                           | `field`, `curve?`, `dots?`, `strokeWidth?`, `strokeDasharray?`, `connectNulls?` |
+| 2  | `<BarSeries>`      | charts  | Vertical bars via band scale                                    | `field`, `radius?`, `gradientFill?`                                                   |
+| 3  | `<AreaSeries>`     | charts  | Filled area with optional gradient                              | `field`, `curve?`, `gradient?`, `fillOpacity?`, `strokeWidth?`                    |
+| 4  | `<ScatterSeries>`  | charts  | Circle markers at data positions                                | `field`, `radius?`, `symbol?`                                                         |
+| 5  | `<PieSeries>`      | charts  | Pie/donut arcs via d3-pie layout                                | `field`, `nameField?`, `innerRadius?`, `padAngle?`, `cornerRadius?`               |
+| — | `<XAxis>`          | charts  | Bottom/top axis with tick formatting                            | `field?`, `position?`, `tickCount?`, `format?`, `label?`                          |
+| — | `<YAxis>`          | charts  | Left/right axis with tick formatting                            | `field?`, `position?`, `tickCount?`, `format?`, `label?`                          |
+| — | `<CartesianGrid>`  | charts  | Horizontal/vertical grid lines                                  | `horizontal?`, `vertical?`, `strokeDasharray?`                                        |
+| — | `<Tooltip>`        | charts  | Floating tooltip via @floating-ui                               | `trigger?`, `placement?`, `offset?`, `renderContent?`                               |
+| — | `<TooltipContent>` | charts  | Default tooltip body layout                                     | `payload`, `formatValue?`                                                               |
+| — | `<Legend>`         | charts  | Clickable series legend                                         | `position?`, `layout?`, `onToggle?`                                                   |
 
 ### Phase 2 — Advanced Cartesian & Radial (14 chart types)
 
-| # | Component | Description | Key Props |
-|---|-----------|-------------|-----------|
-| 6 | `<StackedBarSeries>` | Stacked vertical bars | `fields`, `stackOrder?`, `stackOffset?` |
-| 7 | `<GroupedBarSeries>` | Side-by-side grouped bars | `fields`, `groupPadding?` |
-| 8 | `<HorizontalBarSeries>` | Flipped axis bars | `field`, `radius?` |
-| 9 | `<MultiLineSeries>` | Multiple overlaid lines from one component | `fields`, `curve?`, `dots?` |
-| 10 | `<StackedAreaSeries>` | Stacked filled areas | `fields`, `curve?`, `stackOrder?`, `stackOffset?` |
-| 11 | `<BubbleSeries>` | Scatter with variable-size circles | `field`, `sizeField`, `minRadius?`, `maxRadius?` |
-| 12 | `<LollipopSeries>` | Thin stem + circle endpoint | `field`, `stemWidth?`, `radius?` |
-| 13 | `<DumbbellSeries>` | Two-point range comparison | `startField`, `endField`, `stemWidth?` |
-| 14 | `<HistogramSeries>` | Binned frequency distribution | `field`, `bins?`, `binMethod?` |
-| 15 | `<RadarSeries>` | Spider/radar polygon | `fields`, `fillOpacity?`, `levels?` |
-| 16 | `<RadialBarSeries>` | Circular progress bars | `field`, `innerRadius?`, `cornerRadius?` |
-| 17 | `<PolarAreaSeries>` | Nightingale/coxcomb rose chart | `field`, `nameField?`, `innerRadius?` |
-| 18 | `<Heatmap>` | Color-coded matrix | `xField`, `yField`, `valueField`, `colorScale?` |
-| 19 | `<Sparkline>` | Inline mini line chart | `field`, `height?`, `strokeWidth?`, `area?` |
-| — | `<CanvasRenderer>` | Canvas backend for heavy datasets | `threshold?` (auto-switch point count) |
+| #  | Component                 | Description                                | Key Props                                                 |
+| -- | ------------------------- | ------------------------------------------ | --------------------------------------------------------- |
+| 6  | `<StackedBarSeries>`    | Stacked vertical bars                      | `fields`, `stackOrder?`, `stackOffset?`             |
+| 7  | `<GroupedBarSeries>`    | Side-by-side grouped bars                  | `fields`, `groupPadding?`                             |
+| 8  | `<HorizontalBarSeries>` | Flipped axis bars                          | `field`, `radius?`                                    |
+| 9  | `<MultiLineSeries>`     | Multiple overlaid lines from one component | `fields`, `curve?`, `dots?`                         |
+| 10 | `<StackedAreaSeries>`   | Stacked filled areas                       | `fields`, `curve?`, `stackOrder?`, `stackOffset?` |
+| 11 | `<BubbleSeries>`        | Scatter with variable-size circles         | `field`, `sizeField`, `minRadius?`, `maxRadius?`  |
+| 12 | `<LollipopSeries>`      | Thin stem + circle endpoint                | `field`, `stemWidth?`, `radius?`                    |
+| 13 | `<DumbbellSeries>`      | Two-point range comparison                 | `startField`, `endField`, `stemWidth?`              |
+| 14 | `<HistogramSeries>`     | Binned frequency distribution              | `field`, `bins?`, `binMethod?`                      |
+| 15 | `<RadarSeries>`         | Spider/radar polygon                       | `fields`, `fillOpacity?`, `levels?`                 |
+| 16 | `<RadialBarSeries>`     | Circular progress bars                     | `field`, `innerRadius?`, `cornerRadius?`            |
+| 17 | `<PolarAreaSeries>`     | Nightingale/coxcomb rose chart             | `field`, `nameField?`, `innerRadius?`               |
+| 18 | `<Heatmap>`             | Color-coded matrix                         | `xField`, `yField`, `valueField`, `colorScale?`   |
+| 19 | `<Sparkline>`           | Inline mini line chart                     | `field`, `height?`, `strokeWidth?`, `area?`       |
+| — | `<CanvasRenderer>`      | Canvas backend for heavy datasets          | `threshold?` (auto-switch point count)                  |
 
 ### Phase 3 — Specialized & Statistical (16 chart types)
 
-| # | Component | D3 Module | Description | Key Props |
-|---|-----------|-----------|-------------|-----------|
-| 20 | `<TreemapSeries>` | d3-hierarchy | Nested rectangles for hierarchical data | `field`, `tile?`, `padding?` |
-| 21 | `<SunburstSeries>` | d3-hierarchy | Multi-level radial partition | `field`, `nameField?`, `levels?` |
-| 22 | `<CirclePackingSeries>` | d3-hierarchy | Nested circles for hierarchical data | `field`, `padding?` |
-| 23 | `<IcicleSeries>` | d3-hierarchy | Horizontal partition layout | `field`, `padding?` |
-| 24 | `<SankeyDiagram>` | d3-sankey | Flow/energy diagrams between nodes | `nodes`, `links`, `nodeWidth?`, `nodePadding?` |
-| 25 | `<ChordDiagram>` | d3-chord | Relationship matrix in circular layout | `matrix`, `labels?`, `padAngle?` |
-| 26 | `<ForceGraph>` | d3-force | Interactive node-link network graphs | `nodes`, `links`, `strength?`, `charge?` |
-| 27 | `<CandlestickSeries>` | — | OHLC financial price charts | `openField`, `highField`, `lowField`, `closeField` |
-| 28 | `<WaterfallSeries>` | — | Running total / cumulative effect | `field`, `positiveColor?`, `negativeColor?`, `totalColor?` |
-| 29 | `<FunnelSeries>` | — | Sales/conversion funnel | `field`, `nameField?`, `neckWidth?`, `neckHeight?` |
-| 30 | `<GaugeSeries>` | — | Semi-circle dashboard gauge with needle | `value`, `min?`, `max?`, `segments?` |
-| 31 | `<BoxPlotSeries>` | — | Quartile distribution (box + whiskers) | `field`, `groupField?`, `whiskerType?` |
-| 32 | `<ViolinSeries>` | — | Kernel density distribution shape | `field`, `groupField?`, `bandwidth?` |
-| 33 | `<BulletSeries>` | — | Qualitative range indicator (Stephen Few) | `value`, `target`, `ranges` |
-| 34 | `<SlopeSeries>` | — | Before/after comparison between two points | `startField`, `endField`, `nameField?` |
-| 35 | `<StreamGraphSeries>` | d3-shape | Stacked area with baseline offset | `fields`, `curve?`, `offset?` |
+| #  | Component                 | D3 Module    | Description                                | Key Props                                                          |
+| -- | ------------------------- | ------------ | ------------------------------------------ | ------------------------------------------------------------------ |
+| 20 | `<TreemapSeries>`       | d3-hierarchy | Nested rectangles for hierarchical data    | `field`, `tile?`, `padding?`                                 |
+| 21 | `<SunburstSeries>`      | d3-hierarchy | Multi-level radial partition               | `field`, `nameField?`, `levels?`                             |
+| 22 | `<CirclePackingSeries>` | d3-hierarchy | Nested circles for hierarchical data       | `field`, `padding?`                                            |
+| 23 | `<IcicleSeries>`        | d3-hierarchy | Horizontal partition layout                | `field`, `padding?`                                            |
+| 24 | `<SankeyDiagram>`       | d3-sankey    | Flow/energy diagrams between nodes         | `nodes`, `links`, `nodeWidth?`, `nodePadding?`             |
+| 25 | `<ChordDiagram>`        | d3-chord     | Relationship matrix in circular layout     | `matrix`, `labels?`, `padAngle?`                             |
+| 26 | `<ForceGraph>`          | d3-force     | Interactive node-link network graphs       | `nodes`, `links`, `strength?`, `charge?`                   |
+| 27 | `<CandlestickSeries>`   | —           | OHLC financial price charts                | `openField`, `highField`, `lowField`, `closeField`         |
+| 28 | `<WaterfallSeries>`     | —           | Running total / cumulative effect          | `field`, `positiveColor?`, `negativeColor?`, `totalColor?` |
+| 29 | `<FunnelSeries>`        | —           | Sales/conversion funnel                    | `field`, `nameField?`, `neckWidth?`, `neckHeight?`         |
+| 30 | `<GaugeSeries>`         | —           | Semi-circle dashboard gauge with needle    | `value`, `min?`, `max?`, `segments?`                       |
+| 31 | `<BoxPlotSeries>`       | —           | Quartile distribution (box + whiskers)     | `field`, `groupField?`, `whiskerType?`                       |
+| 32 | `<ViolinSeries>`        | —           | Kernel density distribution shape          | `field`, `groupField?`, `bandwidth?`                         |
+| 33 | `<BulletSeries>`        | —           | Qualitative range indicator (Stephen Few)  | `value`, `target`, `ranges`                                  |
+| 34 | `<SlopeSeries>`         | —           | Before/after comparison between two points | `startField`, `endField`, `nameField?`                       |
+| 35 | `<StreamGraphSeries>`   | d3-shape     | Stacked area with baseline offset          | `fields`, `curve?`, `offset?`                                |
 
 ### Phase 4 — Exotic, Composition & Interaction (7 chart types + utilities)
 
 **Chart types:**
 
-| # | Component | Description | Key Props |
-|---|-----------|-------------|-----------|
-| 36 | `<ParallelCoordinatesSeries>` | Multi-axis comparison plot | `fields`, `brushable?`, `curveType?` |
-| 37 | `<CalendarHeatmap>` | GitHub-style day grid over months | `dateField`, `valueField`, `colorScale?` |
-| 38 | `<RidgeLineSeries>` | Overlapping density distributions (joy plot) | `fields`, `overlap?`, `curve?` |
-| 39 | `<MarimekksSeries>` | Variable-width stacked bars (mosaic) | `widthField`, `heightField`, `categoryField?` |
-| 40 | `<WordCloud>` | Weighted text layout | `textField`, `valueField`, `spiral?`, `rotate?` |
-| 41 | `<GanttSeries>` | Timeline/schedule horizontal bars | `startField`, `endField`, `nameField?`, `progressField?` |
-| 42 | `<DensityContour>` | 2D kernel density estimation contour | `xField`, `yField`, `bandwidth?`, `thresholds?` |
+| #  | Component                       | Description                                  | Key Props                                                        |
+| -- | ------------------------------- | -------------------------------------------- | ---------------------------------------------------------------- |
+| 36 | `<ParallelCoordinatesSeries>` | Multi-axis comparison plot                   | `fields`, `brushable?`, `curveType?`                       |
+| 37 | `<CalendarHeatmap>`           | GitHub-style day grid over months            | `dateField`, `valueField`, `colorScale?`                   |
+| 38 | `<RidgeLineSeries>`           | Overlapping density distributions (joy plot) | `fields`, `overlap?`, `curve?`                             |
+| 39 | `<MarimekksSeries>`           | Variable-width stacked bars (mosaic)         | `widthField`, `heightField`, `categoryField?`              |
+| 40 | `<WordCloud>`                 | Weighted text layout                         | `textField`, `valueField`, `spiral?`, `rotate?`          |
+| 41 | `<GanttSeries>`               | Timeline/schedule horizontal bars            | `startField`, `endField`, `nameField?`, `progressField?` |
+| 42 | `<DensityContour>`            | 2D kernel density estimation contour         | `xField`, `yField`, `bandwidth?`, `thresholds?`          |
+
+### Phase 5 — Additional Chart Types (from reference analysis)
+
+| #  | Component                | Description                                        | Key Props                                                          |
+| -- | ------------------------ | -------------------------------------------------- | ------------------------------------------------------------------ |
+| 43 | `<PyramidSeries>`      | Triangular funnel / population pyramid             | `field`, `nameField?`, `direction?` (`'up'` \| `'down'`) |
+| 44 | `<DivergingBarSeries>` | Bars extending in both directions from center      | `positiveField`, `negativeField`, `nameField?`               |
+| 45 | `<VennDiagram>`        | Overlapping circles for set intersection           | `sets`, `intersections?`, `labels?`                          |
+| 46 | `<TimelineSeries>`     | Event-based timeline with markers and ranges       | `startField`, `endField?`, `nameField?`, `color?`          |
+| 47 | `<ComparisonSeries>`   | Side-by-side metric comparison (tornado/butterfly) | `leftField`, `rightField`, `nameField?`                      |
+| 48 | `<DonutSeries>`        | Dedicated donut component (wraps PieSeries)        | `field`, `nameField?`, `thickness?`, `centerLabel?`        |
 
 **Composition & interaction primitives:**
 
-| Component | Description |
-|-----------|-------------|
-| `<ChartGroup>` | Synchronized tooltips, crosshairs, and zoom across multiple `<Chart>` instances |
-| `<Brush>` | Draggable selection region for zoom/pan with optional mini-map |
-| `<ReferenceLine>` | Horizontal/vertical annotation line at a data value |
-| `<ReferenceBand>` | Shaded region between two values (e.g., "target zone") |
-| `<CrosshairOverlay>` | Vertical/horizontal line tracking cursor position |
-| `<Annotations>` | Text, arrow, or custom SVG placed at data coordinates |
-| Export utilities | `exportToPNG()`, `exportToSVG()` via `ChartHandle` ref |
-| Streaming support | `useStreamingData()` hook for real-time append with ring buffer |
+| Component              | Description                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------- |
+| `<ChartGroup>`       | Synchronized tooltips, crosshairs, and zoom across multiple `<Chart>` instances |
+| `<Brush>`            | Draggable selection region for zoom/pan with optional mini-map                    |
+| `<ReferenceLine>`    | Horizontal/vertical annotation line at a data value                               |
+| `<ReferenceBand>`    | Shaded region between two values (e.g., "target zone")                            |
+| `<CrosshairOverlay>` | Vertical/horizontal line tracking cursor position                                 |
+| `<Annotations>`      | Text, arrow, or custom SVG placed at data coordinates                             |
+| Export utilities       | `exportToPNG()`, `exportToSVG()` via `ChartHandle` ref                      |
+| Streaming support      | `useStreamingData()` hook for real-time append with ring buffer                 |
 
 ---
 
@@ -541,12 +547,12 @@ interface VisualizationTokens {
 
 ### Theme Presets — 4 Built-in Themes
 
-| Theme | Mode | Aesthetic | Primary Use |
-|-------|------|-----------|-------------|
-| **Midnight** | Dark | Deep charcoal (#0F172A), vibrant pastel accents, glassmorphism tooltips | Dashboards, dark UIs, data-heavy apps |
-| **Daylight** | Light | Pure white, deeper saturated accents, soft shadows | Documentation, reports, print |
-| **Aurora** | Dark | Deep navy, neon gradients, electric accents, glow effects | Creative portfolios, presentations (Phase 2) |
-| **Corporate** | Light | Warm gray, muted professional palette, minimal decoration | Enterprise dashboards, annual reports (Phase 2) |
+| Theme               | Mode  | Aesthetic                                                               | Primary Use                                     |
+| ------------------- | ----- | ----------------------------------------------------------------------- | ----------------------------------------------- |
+| **Midnight**  | Dark  | Deep charcoal (#0F172A), vibrant pastel accents, glassmorphism tooltips | Dashboards, dark UIs, data-heavy apps           |
+| **Daylight**  | Light | Pure white, deeper saturated accents, soft shadows                      | Documentation, reports, print                   |
+| **Aurora**    | Dark  | Deep navy, neon gradients, electric accents, glow effects               | Creative portfolios, presentations (Phase 2)    |
+| **Corporate** | Light | Warm gray, muted professional palette, minimal decoration               | Enterprise dashboards, annual reports (Phase 2) |
 
 ### Nested Theme Providers
 
@@ -613,23 +619,23 @@ const { scale, ticks, domain, range, bandwidth, invert } = useScale({
 
 ### Supported Scale Types
 
-| Type | Category | Domain | Range | Use Case |
-|------|----------|--------|-------|----------|
-| `linear` | Continuous | number[] | number[] | Most numeric axes |
-| `log` | Continuous | number[] | number[] | Exponential data (user counts, prices) |
-| `pow` | Continuous | number[] | number[] | Polynomial relationships |
-| `sqrt` | Continuous | number[] | number[] | Square root (area-proportional sizing) |
-| `symlog` | Continuous | number[] | number[] | Data crossing zero with log-like spread |
-| `time` | Continuous | Date[] | number[] | Time-series x-axes |
-| `utc` | Continuous | Date[] | number[] | UTC time-series (server timestamps) |
-| `band` | Discrete | string[] | number[] | Bar chart categories |
-| `point` | Discrete | string[] | number[] | Scatter categories (no bandwidth) |
-| `ordinal` | Discrete | string[] | string[] | Color mapping (category → hex) |
-| `sequential` | Color | [min, max] | interpolator | Heatmap value → color |
-| `diverging` | Color | [min, mid, max] | interpolator | Diverging heatmaps (positive/negative) |
-| `threshold` | Bucketed | number[] | string[] | Choropleth breakpoints |
-| `quantize` | Bucketed | [min, max] | string[] | Equal-interval color classes |
-| `quantile` | Bucketed | number[] | string[] | Equal-count color classes |
+| Type           | Category   | Domain          | Range        | Use Case                                |
+| -------------- | ---------- | --------------- | ------------ | --------------------------------------- |
+| `linear`     | Continuous | number[]        | number[]     | Most numeric axes                       |
+| `log`        | Continuous | number[]        | number[]     | Exponential data (user counts, prices)  |
+| `pow`        | Continuous | number[]        | number[]     | Polynomial relationships                |
+| `sqrt`       | Continuous | number[]        | number[]     | Square root (area-proportional sizing)  |
+| `symlog`     | Continuous | number[]        | number[]     | Data crossing zero with log-like spread |
+| `time`       | Continuous | Date[]          | 0n0umber[]   | Time-series x-axes                      |
+| `utc`        | Continuous | Date[]          | number[]     | UTC time-series (server timestamps)     |
+| `band`       | Discrete   | string[]        | number[]     | Bar chart categories                    |
+| `point`      | Discrete   | string[]        | number[]     | Scatter categories (no bandwidth)       |
+| `ordinal`    | Discrete   | string[]        | string[]     | Color mapping (category → hex)         |
+| `sequential` | Color      | [min, max]      | interpolator | Heatmap value → color                  |
+| `diverging`  | Color      | [min, mid, max] | interpolator | Diverging heatmaps (positive/negative)  |
+| `threshold`  | Bucketed   | number[]        | string[]     | Choropleth breakpoints                  |
+| `quantize`   | Bucketed   | [min, max]      | string[]     | Equal-interval color classes            |
+| `quantile`   | Bucketed   | number[]        | string[]     | Equal-count color classes               |
 
 ### `detectScaleType()` Utility
 
@@ -669,15 +675,15 @@ interface ScaleConfig {
 
 Every animated transition in VisKit uses `@react-spring/web`:
 
-| Animation | Spring Preset | Trigger |
-|-----------|-------------|---------|
-| Initial chart render | `gentle` | Mount |
-| Data update transitions | `gentle` | Data prop change |
-| Hover state (dots, bars) | `responsive` | Mouse enter/leave |
-| Tooltip appear/dismiss | `responsive` | Focus/hover |
-| Series enter/exit | `gentle` + stagger | Data length change |
-| Active series emphasis | `responsive` | Legend interaction |
-| Brush drag | `responsive` | Pointer events |
+| Animation                | Spring Preset        | Trigger            |
+| ------------------------ | -------------------- | ------------------ |
+| Initial chart render     | `gentle`           | Mount              |
+| Data update transitions  | `gentle`           | Data prop change   |
+| Hover state (dots, bars) | `responsive`       | Mouse enter/leave  |
+| Tooltip appear/dismiss   | `responsive`       | Focus/hover        |
+| Series enter/exit        | `gentle` + stagger | Data length change |
+| Active series emphasis   | `responsive`       | Legend interaction |
+| Brush drag               | `responsive`       | Pointer events     |
 
 ### Spring Presets
 
@@ -693,6 +699,7 @@ const springPresets = {
 ### `resolveSpringConfig(preset, { animate, reducedMotion })`
 
 Central resolver that returns `immediate` when:
+
 - `animate={false}` is set on the series/chart
 - `useReducedMotion()` returns `true` (OS setting)
 
@@ -743,14 +750,14 @@ A visually hidden `<table>` below the SVG contains all chart data in tabular for
 
 ### Keyboard Navigation
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Move focus to the chart, then to individual data points |
-| `→` / `←` | Navigate between data points within a series |
-| `↑` / `↓` | Navigate between series (multi-series charts) |
-| `Enter` | Trigger click handler on focused point |
-| `Escape` | Dismiss tooltip, deselect point |
-| `Home` / `End` | Jump to first/last data point |
+| Key                | Action                                                  |
+| ------------------ | ------------------------------------------------------- |
+| `Tab`            | Move focus to the chart, then to individual data points |
+| `→` / `←`    | Navigate between data points within a series            |
+| `↑` / `↓`    | Navigate between series (multi-series charts)           |
+| `Enter`          | Trigger click handler on focused point                  |
+| `Escape`         | Dismiss tooltip, deselect point                         |
+| `Home` / `End` | Jump to first/last data point                           |
 
 ### Data Point Focus
 
@@ -790,12 +797,12 @@ const { width, height, containerRef } = useResponsiveSize({
 
 ### Behavior Matrix
 
-| Width | Height | Result |
-|-------|--------|--------|
+| Width   | Height  | Result                                          |
+| ------- | ------- | ----------------------------------------------- |
 | Omitted | Omitted | Fills container width, height from aspect ratio |
-| Omitted | Fixed | Fills container width, fixed height |
-| Fixed | Omitted | Fixed width, height from aspect ratio |
-| Fixed | Fixed | Fixed dimensions, no observation |
+| Omitted | Fixed   | Fills container width, fixed height             |
+| Fixed   | Omitted | Fixed width, height from aspect ratio           |
+| Fixed   | Fixed   | Fixed dimensions, no observation                |
 
 ### Resize Strategy
 
@@ -828,18 +835,18 @@ const fmt = useFormat((v) => `${v}ms`); // Custom function
 
 ### Built-in Formats
 
-| Format | Output Example | Intl API Used |
-|--------|---------------|---------------|
-| `'number'` | `42,000` | `Intl.NumberFormat` |
-| `'integer'` | `42,000` | `Intl.NumberFormat` (maxFractionDigits: 0) |
-| `'currency'` | `$42,000.00` | `Intl.NumberFormat` (style: 'currency') |
-| `'percent'` | `42.0%` | `Intl.NumberFormat` (style: 'percent') |
-| `'compact'` | `42K` | `Intl.NumberFormat` (notation: 'compact') |
-| `'date'` | `Apr 14, 2026` | `Intl.DateTimeFormat` (dateStyle: 'medium') |
-| `'date:short'` | `4/14/26` | `Intl.DateTimeFormat` (dateStyle: 'short') |
-| `'time'` | `2:30 PM` | `Intl.DateTimeFormat` (timeStyle: 'short') |
-| `'datetime'` | `Apr 14, 2026, 2:30 PM` | `Intl.DateTimeFormat` (both) |
-| `'duration'` | `1h 23m 45s` | Custom parser |
+| Format           | Output Example            | Intl API Used                                 |
+| ---------------- | ------------------------- | --------------------------------------------- |
+| `'number'`     | `42,000`                | `Intl.NumberFormat`                         |
+| `'integer'`    | `42,000`                | `Intl.NumberFormat` (maxFractionDigits: 0)  |
+| `'currency'`   | `$42,000.00`            | `Intl.NumberFormat` (style: 'currency')     |
+| `'percent'`    | `42.0%`                 | `Intl.NumberFormat` (style: 'percent')      |
+| `'compact'`    | `42K`                   | `Intl.NumberFormat` (notation: 'compact')   |
+| `'date'`       | `Apr 14, 2026`          | `Intl.DateTimeFormat` (dateStyle: 'medium') |
+| `'date:short'` | `4/14/26`               | `Intl.DateTimeFormat` (dateStyle: 'short')  |
+| `'time'`       | `2:30 PM`               | `Intl.DateTimeFormat` (timeStyle: 'short')  |
+| `'datetime'`   | `Apr 14, 2026, 2:30 PM` | `Intl.DateTimeFormat` (both)                |
+| `'duration'`   | `1h 23m 45s`            | Custom parser                                 |
 
 All formats respect the `locale` parameter (default: `'en-US'`).
 
@@ -889,6 +896,7 @@ The Legend toggles series visibility via `onSeriesToggle`, which adds/removes ke
 ```
 
 When the user hovers a datum in one chart:
+
 - The crosshair position is broadcast to all children
 - Tooltips in all charts snap to the corresponding datum
 - Brush selections are synchronized
@@ -902,7 +910,7 @@ Implemented via a shared `ChartGroupContext` that merges cursor position and act
 ### Minimal Example
 
 ```tsx
-import { Chart, LineSeries } from '@viskit/react';
+import { Chart, LineSeries } from 'viskit-react';
 
 <Chart data={salesData} height={300}>
   <LineSeries field="revenue" />
@@ -917,7 +925,7 @@ This renders a responsive, accessible, animated line chart with auto-detected sc
 import {
   Chart, LineSeries, BarSeries, XAxis, YAxis,
   CartesianGrid, Tooltip, Legend, midnight
-} from '@viskit/react';
+} from 'viskit-react';
 
 <ThemeProvider theme={midnight}>
   <Chart
@@ -942,16 +950,16 @@ import {
 
 ```typescript
 // Option 1: Single package (recommended for most consumers)
-import { Chart, LineSeries, midnight } from '@viskit/react';
+import { Chart, LineSeries, midnight } from 'viskit-react';
 
 // Option 2: Direct sub-packages (maximum tree-shaking)
-import { Chart } from '@viskit/core';
-import { LineSeries } from '@viskit/charts';
-import { midnight } from '@viskit/themes';
+import { Chart } from '@kodemaven/viskit-core';
+import { LineSeries } from '@kodemaven/viskit-charts';
+import { midnight } from '@kodemaven/viskit-themes';
 
 // Option 3: Deep imports (smallest possible bundle)
-import { Chart } from '@viskit/core/chart/chart';
-import { LineSeries } from '@viskit/charts/cartesian/line-series';
+import { Chart } from '@kodemaven/viskit-core/chart/chart';
+import { LineSeries } from '@kodemaven/viskit-charts/cartesian/line-series';
 ```
 
 ### Ref API (`ChartHandle`)
@@ -987,41 +995,41 @@ await chartRef.current?.exportToSVG();  // Phase 4
 
 ### Unit Tests (Vitest)
 
-| Subject | Examples |
-|---------|----------|
-| `useScale` | Each of 15 scale types produces correct domain/range/ticks |
-| `detectScaleType` | Strings → band, numbers → linear, dates → time |
-| `useFormat` | Currency formats \$42,000.00, duration formats 1h 23m |
-| `createTheme` | Deep-merge preserves base, applies overrides |
+| Subject                 | Examples                                                   |
+| ----------------------- | ---------------------------------------------------------- |
+| `useScale`            | Each of 15 scale types produces correct domain/range/ticks |
+| `detectScaleType`     | Strings → band, numbers → linear, dates → time          |
+| `useFormat`           | Currency formats\$42,000.00, duration formats 1h 23m       |
+| `createTheme`         | Deep-merge preserves base, applies overrides               |
 | `resolveSpringConfig` | Returns immediate when animate=false or reducedMotion=true |
-| `useAutoMargin` | Correct margins for axis combinations |
-| Color utilities | WCAG contrast ratios pass AA for all categorical pairs |
+| `useAutoMargin`       | Correct margins for axis combinations                      |
+| Color utilities         | WCAG contrast ratios pass AA for all categorical pairs     |
 
 ### Component Tests (@testing-library/react)
 
-| Subject | Assertions |
-|---------|-----------|
-| `<Chart>` | Renders SVG with role="img", title, desc |
+| Subject          | Assertions                                                  |
+| ---------------- | ----------------------------------------------------------- |
+| `<Chart>`      | Renders SVG with role="img", title, desc                    |
 | `<LineSeries>` | Renders one `<path>` element with correct `d` attribute |
-| `<BarSeries>` | Renders N `<rect>` elements (one per datum) |
-| `<PieSeries>` | Renders N `<path>` arcs matching pie data |
-| Keyboard nav | Arrow keys move focus between data points |
-| Tooltip | Appears on hover, positions correctly, dismisses on Escape |
-| Legend | Clicking toggles series visibility |
-| Accessibility | All ARIA attributes present and correctly linked |
-| Data updates | Adding/removing data points re-renders correctly |
-| Responsive | Changing container size triggers scale recalculation |
+| `<BarSeries>`  | Renders N `<rect>` elements (one per datum)               |
+| `<PieSeries>`  | Renders N `<path>` arcs matching pie data                 |
+| Keyboard nav     | Arrow keys move focus between data points                   |
+| Tooltip          | Appears on hover, positions correctly, dismisses on Escape  |
+| Legend           | Clicking toggles series visibility                          |
+| Accessibility    | All ARIA attributes present and correctly linked            |
+| Data updates     | Adding/removing data points re-renders correctly            |
+| Responsive       | Changing container size triggers scale recalculation        |
 
 ### Visual Regression (Chromatic)
 
 Matrix of snapshots:
 
-| Dimension | Values |
-|-----------|--------|
-| Chart type | Line, Bar, Area, Scatter, Pie, Donut, Heatmap, Radar, ... |
-| Theme | Midnight, Daylight, Aurora, Corporate |
-| State | Default, hover on datum, series dimmed, tooltip visible, empty data |
-| Viewport | 375px (mobile), 768px (tablet), 1440px (desktop) |
+| Dimension  | Values                                                              |
+| ---------- | ------------------------------------------------------------------- |
+| Chart type | Line, Bar, Area, Scatter, Pie, Donut, Heatmap, Radar, ...           |
+| Theme      | Midnight, Daylight, Aurora, Corporate                               |
+| State      | Default, hover on datum, series dimmed, tooltip visible, empty data |
+| Viewport   | 375px (mobile), 768px (tablet), 1440px (desktop)                    |
 
 ### Test Conventions
 
@@ -1037,15 +1045,15 @@ Matrix of snapshots:
 
 ### Target Metrics
 
-| Metric | Target | How Measured |
-|--------|--------|-------------|
-| Initial render (6 series, 100 points) | < 16ms (60fps) | React Profiler |
-| Data update (100 points change) | < 16ms | React Profiler |
-| Resize recomputation | < 8ms | Performance.now() in useScale |
-| Bundle size (@viskit/react, all charts) | < 45 KB gzipped | bundlephobia |
-| Bundle size (single chart import) | < 12 KB gzipped | bundlephobia |
-| Time to Interactive (demo page) | < 1.5s | Lighthouse |
-| 10k scatter points (Canvas) | 60fps pan/zoom | requestAnimationFrame counter |
+| Metric                                  | Target          | How Measured                  |
+| --------------------------------------- | --------------- | ----------------------------- |
+| Initial render (6 series, 100 points)   | < 16ms (60fps)  | React Profiler                |
+| Data update (100 points change)         | < 16ms          | React Profiler                |
+| Resize recomputation                    | < 8ms           | Performance.now() in useScale |
+| Bundle size (viskit-react, all charts) | < 45 KB gzipped | bundlephobia                  |
+| Bundle size (single chart import)       | < 12 KB gzipped | bundlephobia                  |
+| Time to Interactive (demo page)         | < 1.5s          | Lighthouse                    |
+| 10k scatter points (Canvas)             | 60fps pan/zoom  | requestAnimationFrame counter |
 
 ### Memoization Strategy
 
@@ -1088,6 +1096,7 @@ export default defineConfig({
 ```
 
 Output per package:
+
 - `dist/index.js` — ESM (tree-shakeable)
 - `dist/index.cjs` — CJS (Node.js compat)
 - `dist/index.d.ts` — TypeScript declarations
@@ -1139,6 +1148,7 @@ Build order: `tsconfig` → `eslint-config` → `core` → `themes` + `animation
 ### TypeScript Configuration
 
 Shared base config `tooling/tsconfig/library.json`:
+
 - Target: `es2022` — modern browsers, no polyfills needed
 - Module: `esnext` with `moduleResolution: "bundler"`
 - Strict: `true` + `noUncheckedIndexedAccess` + `noUnusedLocals` + `noUnusedParameters`
@@ -1154,84 +1164,84 @@ Consumer packages (charts, react) add `paths` mappings for cross-package source 
 
 ### Phase 1 — Foundation (Week 1)
 
-| Day | Deliverable | Status |
-|-----|------------|--------|
-| 1 | Monorepo scaffold: all packages, shared configs, build pipeline, demo app | ✅ Complete |
-| 1 | @viskit/core: types, 3 contexts, useScale (15 types), useResponsiveSize, useAutoMargin, useFormat, `<Chart>` with auto-scale detection | ✅ Complete |
-| 1 | @viskit/themes: token interface, midnight theme, daylight theme, createTheme, CSS bridge | ✅ Complete |
-| 1 | @viskit/animations: useReducedMotion, spring presets, resolveSpringConfig | ✅ Complete |
-| 1 | @viskit/charts: LineSeries, BarSeries, AreaSeries, ScatterSeries, PieSeries | ✅ Complete |
-| 1 | @viskit/react: consumer barrel | ✅ Complete |
-| 1 | Demo app: all 6 chart types rendering | ✅ Complete |
-| 2 | `<XAxis>`, `<YAxis>` — tick generation, label positioning, format integration | |
-| 3 | `<CartesianGrid>` — horizontal/vertical lines from scale ticks | |
-| 3 | `<Legend>` — clickable series list with toggle visibility | |
-| 4 | `<Tooltip>` — @floating-ui positioning, `<TooltipContent>` default body | |
-| 5 | Accessibility: hidden data table, keyboard navigation, focus management | |
-| 6–7 | Unit tests + component tests for all Phase 1 deliverables | |
+| Day  | Deliverable                                                                                                                             | Status      |
+| ---- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 1    | Monorepo scaffold: all packages, shared configs, build pipeline, demo app                                                               | ✅ Complete |
+| 1    | @kodemaven/viskit-core: types, 3 contexts, useScale (15 types), useResponsiveSize, useAutoMargin, useFormat,`<Chart>` with auto-scale detection | ✅ Complete |
+| 1    | @kodemaven/viskit-themes: token interface, midnight theme, daylight theme, createTheme, CSS bridge                                                | ✅ Complete |
+| 1    | @kodemaven/viskit-animations: useReducedMotion, spring presets, resolveSpringConfig                                                               | ✅ Complete |
+| 1    | @kodemaven/viskit-charts: LineSeries, BarSeries, AreaSeries, ScatterSeries, PieSeries                                                             | ✅ Complete |
+| 1    | viskit-react: consumer barrel                                                                                                          | ✅ Complete |
+| 1    | Demo app: all 6 chart types rendering                                                                                                   | ✅ Complete |
+| 2    | `<XAxis>`, `<YAxis>` — tick generation, label positioning, format integration                                                      |             |
+| 3    | `<CartesianGrid>` — horizontal/vertical lines from scale ticks                                                                       |             |
+| 3    | `<Legend>` — clickable series list with toggle visibility                                                                            |             |
+| 4    | `<Tooltip>` — @floating-ui positioning, `<TooltipContent>` default body                                                            |             |
+| 5    | Accessibility: hidden data table, keyboard navigation, focus management                                                                 |             |
+| 6–7 | Unit tests + component tests for all Phase 1 deliverables                                                                               |             |
 
 ### Phase 2 — Advanced Cartesian & Radial (Week 2) — 14 chart types
 
-| Day | Deliverable |
-|-----|------------|
-| 1 | `<StackedBarSeries>`, `<GroupedBarSeries>` — d3-stack, group layout |
-| 2 | `<HorizontalBarSeries>` — flipped CartesianContext, `<MultiLineSeries>` |
-| 2 | `<StackedAreaSeries>` — d3-stack baseline offset |
-| 3 | `<BubbleSeries>` — variable-size scatter, `<LollipopSeries>` — stem + dot |
-| 3 | `<DumbbellSeries>` — range comparison, `<HistogramSeries>` — d3-bin |
-| 4 | `<RadarSeries>` — polar polygon, `<RadialBarSeries>` — circular bars |
-| 4 | `<PolarAreaSeries>` — Nightingale/coxcomb rose chart |
-| 5 | `<Heatmap>` — sequential color scale matrix, `<Sparkline>` — inline mini |
-| 5 | Aurora theme, Corporate theme |
-| 6 | `<CanvasRenderer>` — Canvas2D backend for high-density scatter/heatmap |
-| 6 | `<ThemeProvider>` — nested theme contexts with `useTheme()` hook |
-| 7 | Tests, Chromatic visual regression baseline setup |
+| Day | Deliverable                                                                     |
+| --- | ------------------------------------------------------------------------------- |
+| 1   | `<StackedBarSeries>`, `<GroupedBarSeries>` — d3-stack, group layout        |
+| 2   | `<HorizontalBarSeries>` — flipped CartesianContext, `<MultiLineSeries>`    |
+| 2   | `<StackedAreaSeries>` — d3-stack baseline offset                             |
+| 3   | `<BubbleSeries>` — variable-size scatter, `<LollipopSeries>` — stem + dot |
+| 3   | `<DumbbellSeries>` — range comparison, `<HistogramSeries>` — d3-bin       |
+| 4   | `<RadarSeries>` — polar polygon, `<RadialBarSeries>` — circular bars      |
+| 4   | `<PolarAreaSeries>` — Nightingale/coxcomb rose chart                         |
+| 5   | `<Heatmap>` — sequential color scale matrix, `<Sparkline>` — inline mini  |
+| 5   | Aurora theme, Corporate theme                                                   |
+| 6   | `<CanvasRenderer>` — Canvas2D backend for high-density scatter/heatmap       |
+| 6   | `<ThemeProvider>` — nested theme contexts with `useTheme()` hook           |
+| 7   | Tests, Chromatic visual regression baseline setup                               |
 
 ### Phase 3 — Specialized & Statistical (Week 3) — 16 chart types
 
-| Day | Deliverable |
-|-----|------------|
-| 1 | `<TreemapSeries>` — d3-hierarchy squarified layout, `<SunburstSeries>` — radial partition |
-| 1 | `<CirclePackingSeries>` — nested circles, `<IcicleSeries>` — horizontal partition |
-| 2 | `<SankeyDiagram>` — d3-sankey node positioning + flow links |
-| 2 | `<ChordDiagram>` — d3-chord relationship matrix |
-| 3 | `<ForceGraph>` — d3-force simulation, interactive dragging, Canvas rendering |
-| 4 | `<CandlestickSeries>` — OHLC bodies + wicks, `<WaterfallSeries>` — running totals |
-| 4 | `<BoxPlotSeries>` — quartile box + whiskers, `<ViolinSeries>` — kernel density |
-| 5 | `<BulletSeries>` — qualitative range (Stephen Few), `<SlopeSeries>` — before/after |
-| 5 | `<StreamGraphSeries>` — d3-shape wiggle offset stacked area |
-| 6 | `<FunnelSeries>` — trapezoid segments, `<GaugeSeries>` — semi-circle with needle |
-| 7 | Tests + component documentation for all specialized charts |
+| Day | Deliverable                                                                                     |
+| --- | ----------------------------------------------------------------------------------------------- |
+| 1   | `<TreemapSeries>` — d3-hierarchy squarified layout, `<SunburstSeries>` — radial partition |
+| 1   | `<CirclePackingSeries>` — nested circles, `<IcicleSeries>` — horizontal partition         |
+| 2   | `<SankeyDiagram>` — d3-sankey node positioning + flow links                                  |
+| 2   | `<ChordDiagram>` — d3-chord relationship matrix                                              |
+| 3   | `<ForceGraph>` — d3-force simulation, interactive dragging, Canvas rendering                 |
+| 4   | `<CandlestickSeries>` — OHLC bodies + wicks, `<WaterfallSeries>` — running totals         |
+| 4   | `<BoxPlotSeries>` — quartile box + whiskers, `<ViolinSeries>` — kernel density            |
+| 5   | `<BulletSeries>` — qualitative range (Stephen Few), `<SlopeSeries>` — before/after        |
+| 5   | `<StreamGraphSeries>` — d3-shape wiggle offset stacked area                                  |
+| 6   | `<FunnelSeries>` — trapezoid segments, `<GaugeSeries>` — semi-circle with needle          |
+| 7   | Tests + component documentation for all specialized charts                                      |
 
 ### Phase 4 — Exotic Charts, Composition & Polish (Week 4) — 7 chart types + utilities
 
-| Day | Deliverable |
-|-----|------------|
-| 1 | `<ParallelCoordinatesSeries>` — multi-axis comparison with brushable axes |
-| 1 | `<CalendarHeatmap>` — GitHub-style day grid over months |
-| 2 | `<RidgeLineSeries>` — overlapping density plots (joy plot) |
-| 2 | `<MarimekksSeries>` — variable-width stacked bars (mosaic chart) |
-| 3 | `<WordCloud>` — d3-cloud weighted text layout, `<DensityContour>` — 2D KDE |
-| 3 | `<GanttSeries>` — timeline/schedule horizontal bars |
-| 4 | `<ChartGroup>` — synchronized crosshairs, tooltips, and active state |
-| 4 | `<Brush>` — draggable selection, zoom integration, mini-map |
-| 5 | `<ReferenceLine>`, `<ReferenceBand>`, `<Annotations>` |
-| 5 | `<CrosshairOverlay>`, `exportToPNG()`, `exportToSVG()` |
-| 6 | `useStreamingData()` hook — real-time append with ring buffer, smooth transitions |
-| 7 | Integration tests, performance profiling, benchmark suite |
+| Day | Deliverable                                                                          |
+| --- | ------------------------------------------------------------------------------------ |
+| 1   | `<ParallelCoordinatesSeries>` — multi-axis comparison with brushable axes         |
+| 1   | `<CalendarHeatmap>` — GitHub-style day grid over months                           |
+| 2   | `<RidgeLineSeries>` — overlapping density plots (joy plot)                        |
+| 2   | `<MarimekksSeries>` — variable-width stacked bars (mosaic chart)                  |
+| 3   | `<WordCloud>` — d3-cloud weighted text layout, `<DensityContour>` — 2D KDE     |
+| 3   | `<GanttSeries>` — timeline/schedule horizontal bars                               |
+| 4   | `<ChartGroup>` — synchronized crosshairs, tooltips, and active state              |
+| 4   | `<Brush>` — draggable selection, zoom integration, mini-map                       |
+| 5   | `<ReferenceLine>`, `<ReferenceBand>`, `<Annotations>`                          |
+| 5   | `<CrosshairOverlay>`, `exportToPNG()`, `exportToSVG()`                         |
+| 6   | `useStreamingData()` hook — real-time append with ring buffer, smooth transitions |
+| 7   | Integration tests, performance profiling, benchmark suite                            |
 
 ### Weeks 5–6 — Hardening Sprint
 
-| Area | Tasks |
-|------|-------|
-| Cross-browser | Chrome, Firefox, Safari, Edge — test all chart types |
-| Bundle audit | Per-package size analysis, dead code elimination, import cost badges |
-| SSR compatibility | Verify all hooks are SSR-safe (no `window` on mount) |
-| Documentation site | Next.js app with live examples, API reference, theme playground |
-| npm publishing | Automated publish pipeline, semantic versioning, changesets |
-| Community files | README (with badges), CHANGELOG, CONTRIBUTING, CODE_OF_CONDUCT, LICENSE |
-| Final snapshots | Complete Chromatic baseline: every chart × theme × viewport × state |
-| Performance | Lighthouse audit, React Profiler analysis, 10k-point Canvas benchmark |
+| Area               | Tasks                                                                   |
+| ------------------ | ----------------------------------------------------------------------- |
+| Cross-browser      | Chrome, Firefox, Safari, Edge — test all chart types                   |
+| Bundle audit       | Per-package size analysis, dead code elimination, import cost badges    |
+| SSR compatibility  | Verify all hooks are SSR-safe (no `window` on mount)                  |
+| Documentation site | Next.js app with live examples, API reference, theme playground         |
+| npm publishing     | Automated publish pipeline, semantic versioning, changesets             |
+| Community files    | README (with badges), CHANGELOG, CONTRIBUTING, CODE_OF_CONDUCT, LICENSE |
+| Final snapshots    | Complete Chromatic baseline: every chart × theme × viewport × state  |
+| Performance        | Lighthouse audit, React Profiler analysis, 10k-point Canvas benchmark   |
 
 ---
 
@@ -1239,60 +1249,165 @@ Consumer packages (charts, react) add `paths` mappings for cross-package source 
 
 ### Completed ✅
 
-- [x] Monorepo structure — pnpm workspaces + Turborepo pipeline
-- [x] Shared tooling — TypeScript configs, ESLint flat config
-- [x] **@viskit/core** — types.ts (25+ exported types), 3 context providers, useScale (15 scale types + detectScaleType), useResponsiveSize (ResizeObserver + debounce), useAutoMargin (content-aware margins), useFormat (10 built-in formats via Intl), `<Chart>` (responsive container, auto-scale detection, auto-CartesianProvider, ARIA attributes, forwardRef)
-- [x] **@viskit/themes** — VisualizationTokens interface (60+ tokens), ColorScale type, midnight dark theme, daylight light theme, createTheme deep-merge, injectCSSVariables CSS bridge
-- [x] **@viskit/animations** — useReducedMotion hook, 4 spring presets, resolveSpringConfig
-- [x] **@viskit/charts** — LineSeries (7 curve types, dots, dash, connectNulls), BarSeries (rounded corners), AreaSeries (gradient fills), ScatterSeries (sized circles), PieSeries (donut, padAngle, cornerRadius)
-- [x] **@viskit/react** — Consumer barrel re-exporting all packages
-- [x] **Demo app** — Vite app showing Line, Bar, Area, Scatter, Pie, Donut
-- [x] **Build pipeline** — All 6 packages building clean (ESM + CJS + DTS)
+**Infrastructure & Core Packages**
 
-### In Progress 🔄
+- [X] Monorepo structure — pnpm workspaces + Turborepo pipeline
+- [X] Shared tooling — TypeScript configs, ESLint flat config
+- [X] **@kodemaven/viskit-core** — types.ts (25+ exported types), 3 context providers, useScale (15 scale types + detectScaleType), useResponsiveSize (ResizeObserver + debounce), useAutoMargin (content-aware margins with symmetric defaults), useFormat (10 built-in formats via Intl), useKeyboardNav, `<Chart>` (responsive container, auto-scale detection, auto-CartesianProvider, ARIA attributes, forwardRef)
+- [X] **@kodemaven/viskit-themes** — VisualizationTokens interface (60+ tokens), ColorScale type, midnight dark theme, daylight light theme, createTheme deep-merge, injectCSSVariables CSS bridge, ThemeProvider
+- [X] **@kodemaven/viskit-animations** — useReducedMotion hook, 4 spring presets, resolveSpringConfig
+- [X] **viskit-react** — Consumer barrel re-exporting all packages
+- [X] **Build pipeline** — All 7 packages building clean (ESM + CJS + DTS)
 
-- [ ] Phase 1 Day 2: XAxis, YAxis primitives
-- [ ] Phase 1 Day 3: CartesianGrid, Legend
-- [ ] Phase 1 Day 4: Tooltip
-- [ ] Phase 1 Day 5: Accessibility baseline
-- [ ] Phase 1 Days 6–7: Tests
+**Phase 1 — Cartesian Foundations (5 chart types + 6 primitives)**
+
+- [X] `<LineSeries>` — 7 curve types, dots, dash, connectNulls
+- [X] `<BarSeries>` — rounded corners, gradient fill
+- [X] `<AreaSeries>` — gradient fills, multiple curves
+- [X] `<ScatterSeries>` — sized circles
+- [X] `<PieSeries>` — donut variant, padAngle, cornerRadius
+- [X] `<XAxis>` — top/bottom position, tick formatting, labels
+- [X] `<YAxis>` — left/right position, tick formatting, labels
+- [X] `<CartesianGrid>` — horizontal/vertical grid lines, dash styles
+- [X] `<Legend>` — auto-positioning, flexbox wrapping for mobile, click-to-toggle visibility
+- [X] `<Tooltip>` — @floating-ui positioning, hover/focus triggers
+- [X] `<TooltipContent>` — default formatted tooltip body
+
+**Phase 2 — Advanced Cartesian & Radial (14 chart types)**
+
+- [X] `<StackedBarSeries>` — d3-stack, stack order/offset options
+- [X] `<GroupedBarSeries>` — side-by-side grouped bars
+- [X] `<HorizontalBarSeries>` — flipped axis bars
+- [X] `<MultiLineSeries>` — multiple overlaid lines
+- [X] `<StackedAreaSeries>` — stacked filled areas
+- [X] `<BubbleSeries>` — variable-size scatter
+- [X] `<LollipopSeries>` — stem + circle endpoint
+- [X] `<DumbbellSeries>` — two-point range comparison
+- [X] `<HistogramSeries>` — binned frequency distribution
+- [X] `<RadarSeries>` — spider/radar polygon
+- [X] `<RadialBarSeries>` — circular progress bars
+- [X] `<PolarAreaSeries>` — Nightingale/coxcomb rose chart
+- [X] `<Heatmap>` — sequential color scale matrix
+- [X] `<Sparkline>` — inline mini line chart
+- [X] `<CanvasRenderer>` — Canvas2D backend for high-density datasets
+
+**Phase 3 — Specialized & Statistical (16 chart types)**
+
+- [X] `<TreemapSeries>` — d3-hierarchy squarified layout
+- [X] `<SunburstSeries>` — multi-level radial partition
+- [X] `<CirclePackingSeries>` — nested circles
+- [X] `<IcicleSeries>` — horizontal partition layout
+- [X] `<SankeyDiagram>` — d3-sankey flow diagrams
+- [X] `<ChordDiagram>` — d3-chord relationship matrix
+- [X] `<ForceGraph>` — d3-force interactive network graph
+- [X] `<CandlestickSeries>` — OHLC financial charts
+- [X] `<WaterfallSeries>` — running totals
+- [X] `<FunnelSeries>` — conversion funnel
+- [X] `<GaugeSeries>` — semi-circle dashboard gauge with needle
+- [X] `<BoxPlotSeries>` — quartile distribution
+- [X] `<ViolinSeries>` — kernel density shape
+- [X] `<BulletSeries>` — qualitative range indicator
+- [X] `<SlopeSeries>` — before/after comparison
+- [X] `<StreamGraphSeries>` — offset stacked area
+
+**Storybook — Interactive Documentation**
+
+- [X] Storybook 8.6.18 with @storybook/react-vite
+- [X] 43 story files covering all 48 implemented chart types + canvas renderer + primitives
+- [X] All stories include `<Legend>` with labeled items and vibrant PALETTE colors
+- [X] Multiple story variants per chart type (Default, plus specialized variants)
+- [X] Responsive story variants for all Phase 4 and Phase 5 charts
+- [X] Complete argTypes for all Storybook controls (every configurable prop exposed)
+- [X] autodocs enabled for all stories
+
+**Cross-Cutting Enhancements**
+
+- [X] Legend component rewritten — uses `<foreignObject>` + CSS flexbox for responsive wrapping on mobile
+- [X] Vibrant PALETTE colors (12 colors) applied across all chart stories for visual richness
+- [X] Auto-margin defaults made symmetric (left: 20px, right: 16px) for better centering of radial/non-cartesian charts on mobile
+- [X] Demo app — Vite app showing all chart types
+
+**Phase 4 — Exotic Charts, Composition & Interaction (7 chart types + utilities)**
+
+- [X] `<ParallelCoordinatesSeries>` — multi-axis comparison with brushable axes
+- [X] `<CalendarHeatmap>` — GitHub-style day grid over months
+- [X] `<RidgeLineSeries>` — overlapping density plots (joy plot)
+- [X] `<MarimekkoSeries>` — variable-width stacked bars (mosaic chart)
+- [X] `<WordCloud>` — weighted text layout
+- [X] `<GanttSeries>` — timeline/schedule horizontal bars with progress indication
+- [X] `<DensityContour>` — 2D kernel density estimation contour
+- [X] `<ChartGroup>` + `useChartGroup` — synchronized crosshairs, tooltips, and active state
+- [X] `<Brush>` — draggable selection, zoom integration
+- [X] `<ReferenceLine>` — horizontal/vertical annotation lines
+- [X] `<ReferenceBand>` — shaded annotation regions
+- [X] `<Annotations>` — text/arrow/custom SVG at data coordinates
+- [X] `<CrosshairOverlay>` — cursor tracking line
+- [X] `exportToPNG()`, `exportToSVG()` via ChartHandle ref
+- [X] `useStreamingData()` hook — real-time append with ring buffer
+
+**Phase 5 — Additional Chart Types (from reference analysis)**
+
+- [X] `<PyramidSeries>` — triangular funnel / population pyramid (up/down direction)
+- [X] `<DivergingBarSeries>` — bars extending in both directions from center axis
+- [X] `<VennDiagram>` — overlapping circles for set intersection (2–3 sets with intersection labels)
+- [X] `<TimelineSeries>` — event-based timeline with markers, ranges, and swim lanes
+- [X] `<ComparisonSeries>` — side-by-side metric comparison (tornado/butterfly)
+- [X] `<DonutSeries>` — dedicated donut with configurable thickness, center label, hover info
+
+### Not Started ⬜
+
+**Hardening Sprint**
+
+- [ ] Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- [ ] Documentation site (Next.js with live examples)
+- [ ] Full Chromatic visual regression baseline
+- [ ] Performance profiling + Lighthouse audit
+
+### Completed (Hardening Sprint) ✅
+
+- [X] Bundle audit — `sideEffects: false` on all packages, `splitting: true` in tsup configs, externals verified
+- [X] SSR compatibility — `injectCSSVariables` guards `typeof document`, `useReducedMotion` guards `window.matchMedia`, `CanvasRenderer` guards `devicePixelRatio`
+- [X] npm publishing pipeline — `@changesets/cli` configured, linked versioning across all 5 packages, `changeset` / `version-packages` / `release` root scripts, all packages have `publishConfig.access: "public"`
+- [X] Community files — MIT LICENSE, CONTRIBUTING.md, CODE_OF_CONDUCT.md, CHANGELOG.md
+- [X] CI workflows — GitHub Actions `ci.yml` (build + test + typecheck + lint on Node 20/22) and `release.yml` (changesets auto-publish)
+- [X] Vitest workspace — root `vitest.workspace.ts` unifying test runs across all 4 packages
 
 ---
 
 ## Appendix A — Naming Conventions
 
-| What | Convention | Example |
-|------|-----------|---------|
-| Components | PascalCase, self-descriptive | `LineSeries`, `CartesianGrid`, `TooltipContent` |
-| Hooks | `use` + clear purpose | `useScale`, `useAutoMargin`, `useReducedMotion` |
-| Functions | Verb-first | `computeLinePath`, `formatCurrency`, `resolveThemeTokens` |
-| Variables | Descriptive nouns | `tickPositions`, `activeSeriesKey`, `resolvedMargin` |
-| Constants | UPPER_SNAKE_CASE | `DEFAULT_ASPECT_RATIO`, `MIN_TOOLTIP_WIDTH` |
-| Types | PascalCase, no `I` prefix | `ScaleConfig`, `ChartContextValue`, `TooltipPayload` |
-| Props | `ComponentNameProps` | `LineSeriesProps`, `XAxisProps`, `TooltipProps` |
-| Files | kebab-case | `line-series.tsx`, `use-scale.ts`, `cartesian-context.ts` |
-| Test files | Colocated | `line-series.tsx` → `line-series.test.tsx` |
+| What       | Convention                   | Example                                                         |
+| ---------- | ---------------------------- | --------------------------------------------------------------- |
+| Components | PascalCase, self-descriptive | `LineSeries`, `CartesianGrid`, `TooltipContent`           |
+| Hooks      | `use` + clear purpose      | `useScale`, `useAutoMargin`, `useReducedMotion`           |
+| Functions  | Verb-first                   | `computeLinePath`, `formatCurrency`, `resolveThemeTokens` |
+| Variables  | Descriptive nouns            | `tickPositions`, `activeSeriesKey`, `resolvedMargin`      |
+| Constants  | UPPER_SNAKE_CASE             | `DEFAULT_ASPECT_RATIO`, `MIN_TOOLTIP_WIDTH`                 |
+| Types      | PascalCase, no `I` prefix  | `ScaleConfig`, `ChartContextValue`, `TooltipPayload`      |
+| Props      | `ComponentNameProps`       | `LineSeriesProps`, `XAxisProps`, `TooltipProps`           |
+| Files      | kebab-case                   | `line-series.tsx`, `use-scale.ts`, `cartesian-context.ts` |
+| Test files | Colocated                    | `line-series.tsx` → `line-series.test.tsx`                 |
 
 ## Appendix B — Key Dependencies
 
-| Package | Version | Purpose | Bundle Impact |
-|---------|---------|---------|--------------|
-| react | ^19.2.4 | UI framework | Peer dep (external) |
-| react-dom | ^19.2.4 | DOM rendering | Peer dep (external) |
-| typescript | ~6.0.2 | Type system | Dev only |
-| d3-scale | ^4.0.2 | 15 scale constructors | ~5 KB gzipped |
-| d3-shape | ^3.2.0 | Line/area/arc/pie generators | ~4 KB gzipped |
-| d3-array | ^3.2.4 | max, extent, bisect, ticks | ~3 KB gzipped |
-| d3-hierarchy | ^3.1.2 | Treemap, partition layouts | ~3 KB (Phase 3) |
-| d3-force | ^3.0.0 | Force simulation | ~4 KB (Phase 3) |
-| d3-sankey | ^0.12.3 | Sankey layout | ~2 KB (Phase 3) |
-| @react-spring/web | ^9.7.5 | Physics-based animations | ~12 KB gzipped |
-| @floating-ui/react | ^0.27.0 | Tooltip/popover positioning | ~8 KB gzipped |
-| tsup | ^8.4.0 | ESM/CJS/DTS bundler | Dev only |
-| vitest | ^3.2.1 | Test runner | Dev only |
-| @testing-library/react | ^16.x | Component testing | Dev only |
-| turborepo | ^2.9.6 | Monorepo orchestration | Dev only |
-| pnpm | ^10.11.0 | Package manager | Dev only |
+| Package                | Version  | Purpose                      | Bundle Impact       |
+| ---------------------- | -------- | ---------------------------- | ------------------- |
+| react                  | ^19.2.4  | UI framework                 | Peer dep (external) |
+| react-dom              | ^19.2.4  | DOM rendering                | Peer dep (external) |
+| typescript             | ~6.0.2   | Type system                  | Dev only            |
+| d3-scale               | ^4.0.2   | 15 scale constructors        | ~5 KB gzipped       |
+| d3-shape               | ^3.2.0   | Line/area/arc/pie generators | ~4 KB gzipped       |
+| d3-array               | ^3.2.4   | max, extent, bisect, ticks   | ~3 KB gzipped       |
+| d3-hierarchy           | ^3.1.2   | Treemap, partition layouts   | ~3 KB (Phase 3)     |
+| d3-force               | ^3.0.0   | Force simulation             | ~4 KB (Phase 3)     |
+| d3-sankey              | ^0.12.3  | Sankey layout                | ~2 KB (Phase 3)     |
+| @react-spring/web      | ^9.7.5   | Physics-based animations     | ~12 KB gzipped      |
+| @floating-ui/react     | ^0.27.0  | Tooltip/popover positioning  | ~8 KB gzipped       |
+| tsup                   | ^8.4.0   | ESM/CJS/DTS bundler          | Dev only            |
+| vitest                 | ^3.2.1   | Test runner                  | Dev only            |
+| @testing-library/react | ^16.x    | Component testing            | Dev only            |
+| turborepo              | ^2.9.6   | Monorepo orchestration       | Dev only            |
+| pnpm                   | ^10.11.0 | Package manager              | Dev only            |
 
 ## Appendix C — Exports Map Convention
 

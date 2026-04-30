@@ -7,7 +7,7 @@
 // CSS-based design system.
 //
 // Usage:
-//   import { injectCSSVariables, midnight } from '@viskit/themes';
+//   import { injectCSSVariables, midnight } from '@kodemaven/viskit-themes';
 //   injectCSSVariables(midnight);
 //
 // Generates:
@@ -23,6 +23,7 @@ export function injectCSSVariables(
   tokens: VisualizationTokens,
   root?: HTMLElement,
 ): void {
+  if (typeof document === 'undefined') return;
   const el = root ?? document.documentElement;
 
   // Categorical colors

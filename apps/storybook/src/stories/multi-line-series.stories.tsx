@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { MultiLineSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { MultiLineSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { monthlyMetrics, weeklyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { MultiLineSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { MultiLineSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders multiple lines from different numeric fields on the same
@@ -50,6 +50,11 @@ export const Default: Story = {
       <YAxis format="compact" />
       <MultiLineSeries fields={['revenue', 'cost', 'profit']} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal]} />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[
+        { key: 'revenue', label: 'Revenue', color: PALETTE.indigo },
+        { key: 'cost', label: 'Cost', color: PALETTE.pink },
+        { key: 'profit', label: 'Profit', color: PALETTE.teal },
+      ]} />
     </Chart>
   ),
 };

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { CandlestickSeries } from '@viskit/charts';
-import { ohlcData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { CandlestickSeries, Legend } from '@kodemaven/viskit-charts';
+import { ohlcData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { CandlestickSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { CandlestickSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders candlestick (OHLC) charts for financial data. Each candle shows
@@ -48,7 +48,7 @@ interface Args { bodyWidth: number; wickWidth: number; bullishColor: string; bea
 type Story = StoryObj<Args>;
 
 export const Default: Story = {
-  args: { bodyWidth: 0.6, wickWidth: 1.5, bullishColor: '#22c55e', bearishColor: '#ef4444', height: 400 },
+  args: { bodyWidth: 0.6, wickWidth: 1.5, bullishColor: PALETTE.green, bearishColor: PALETTE.red, height: 400 },
   render: (args) => (
     <Chart data={ohlcData} height={args.height}>
       <CandlestickSeries
@@ -61,6 +61,10 @@ export const Default: Story = {
         bullishColor={args.bullishColor}
         bearishColor={args.bearishColor}
       />
+      <Legend items={[
+        { key: 'bullish', label: 'Bullish', color: args.bullishColor },
+        { key: 'bearish', label: 'Bearish', color: args.bearishColor },
+      ]} />
     </Chart>
   ),
 };

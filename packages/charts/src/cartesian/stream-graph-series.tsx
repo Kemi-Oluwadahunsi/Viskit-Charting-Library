@@ -14,7 +14,7 @@
 import { useMemo, useState, useCallback } from 'react';
 import { stack, stackOffsetWiggle, stackOrderInsideOut, area as d3Area, curveBasis } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface StreamGraphSeriesProps<TDatum = Record<string, unknown>> {
   /** Array of numeric field keys to stack */

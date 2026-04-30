@@ -1,5 +1,5 @@
 import { useMemo, useState, useCallback } from 'react';
-import { useChartContext, useCartesianContext } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
 
 export interface DumbbellSeriesProps<TDatum = Record<string, unknown>> {
   fieldStart: keyof TDatum & string;

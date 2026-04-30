@@ -13,7 +13,7 @@
 import { useMemo, useState, useCallback } from 'react';
 import { arc as d3Arc } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface GaugeSeriesProps {
   /** Current value */

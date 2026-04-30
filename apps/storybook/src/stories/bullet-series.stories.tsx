@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { BulletSeries } from '@viskit/charts';
-import { ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { BulletSeries, Legend } from '@kodemaven/viskit-charts';
+import { ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { BulletSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { BulletSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a bullet chart (Stephen Few design) for comparing a primary measure
@@ -49,7 +49,7 @@ interface Args { value: number; target: number; barColor: string; targetColor: s
 type Story = StoryObj<Args>;
 
 export const Default: Story = {
-  args: { value: 72, target: 85, barColor: '#6366f1', targetColor: '#f59e0b', barHeight: 0.4, orientation: 'horizontal', height: 100 },
+  args: { value: 72, target: 85, barColor: PALETTE.indigo, targetColor: PALETTE.amber, barHeight: 0.4, orientation: 'horizontal', height: 100 },
   render: (args) => (
     <Chart data={[]} height={args.height}>
       <BulletSeries
@@ -61,6 +61,10 @@ export const Default: Story = {
         barHeight={args.barHeight}
         orientation={args.orientation as 'horizontal'}
       />
+      <Legend items={[
+        { key: 'actual', label: 'Actual', color: args.barColor },
+        { key: 'target', label: 'Target', color: args.targetColor },
+      ]} />
     </Chart>
   ),
 };

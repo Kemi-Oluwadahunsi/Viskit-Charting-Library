@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { CanvasRenderer, CartesianGrid, XAxis, YAxis, ScatterSeries } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { CanvasRenderer, CartesianGrid, XAxis, YAxis, ScatterSeries } from '@kodemaven/viskit-charts';
 import { ChartWrapper, PALETTE, scatterData } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { CanvasRenderer } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { CanvasRenderer } from '@kodemaven/viskit-charts';
  * ```
  *
  * High-performance Canvas backend for rendering large datasets (5,000+ points).

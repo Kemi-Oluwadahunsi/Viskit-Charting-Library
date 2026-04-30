@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback, useId } from 'react';
 import { stack as d3Stack, stackOrderNone, stackOffsetNone } from 'd3-shape';
-import { useChartContext, useCartesianContext } from '@viskit/core';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
 
 export interface StackedBarSeriesProps<TDatum = Record<string, unknown>> {
   fields: (keyof TDatum & string)[];

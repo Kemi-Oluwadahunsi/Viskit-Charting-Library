@@ -379,18 +379,18 @@
 ### US-060 — Single-Import Consumer Package
 
 **As a** consumer installing VisKit,
-**I want** a single `@viskit/react` package that re-exports every component, hook, theme, and type,
+**I want** a single `viskit-react` package that re-exports every component, hook, theme, and type,
 **so that** I have one install command and one import source for everything.
 
 **Acceptance Criteria:**
-- [ ] `npm install @viskit/react` installs the library with all chart types
-- [ ] `import { Chart, LineSeries, BarSeries, midnight } from '@viskit/react'` works
+- [ ] `npm install viskit-react` installs the library with all chart types
+- [ ] `import { Chart, LineSeries, BarSeries, midnight } from 'viskit-react'` works
 - [ ] Full TypeScript autocomplete and type checking for all re-exported items
 - [ ] Tree-shaking is preserved — unused chart types are not bundled
-- [ ] Direct sub-package imports (`import { Chart } from '@viskit/core'`) remain available as an advanced option
+- [ ] Direct sub-package imports (`import { Chart } from '@kodemaven/viskit-core'`) remain available as an advanced option
 - [ ] All type exports are re-exported via `export type` for `verbatimModuleSyntax` compatibility
 
-**Component:** `@viskit/react` package
+**Component:** `viskit-react` package
 **Priority:** P0 — Must Have
 **Phase:** 1
 

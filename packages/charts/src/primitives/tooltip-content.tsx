@@ -1,4 +1,4 @@
-import type { TooltipPayload } from '@viskit/core';
+import type { TooltipPayload } from '@kodemaven/viskit-core';
 
 export type TooltipVariant = 'default' | 'minimal' | 'compact' | 'gradient' | 'outline';
 

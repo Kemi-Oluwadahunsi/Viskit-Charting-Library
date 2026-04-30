@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { IcicleSeries } from '@viskit/charts';
-import { hierarchyData, ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { IcicleSeries, Legend } from '@kodemaven/viskit-charts';
+import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { IcicleSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { IcicleSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders an icicle diagram — a horizontal partition layout where depth flows
@@ -44,8 +44,13 @@ type Story = StoryObj<Args>;
 export const Default: Story = {
   args: { padding: 2, radius: 3, height: 400 },
   render: (args) => (
-    <Chart data={hierarchyData} height={args.height}>
+    <Chart data={hierarchyData} height={args.height} colors={[PALETTE.indigo, PALETTE.pink, PALETTE.teal, PALETTE.amber, PALETTE.violet, PALETTE.cyan, PALETTE.orange, PALETTE.green]}>
       <IcicleSeries field="value" nameField="name" groupField="group" padding={args.padding} radius={args.radius} />
+      <Legend items={[
+        { key: 'Frontend', label: 'Frontend' },
+        { key: 'Backend', label: 'Backend' },
+        { key: 'Data', label: 'Data' },
+      ]} />
     </Chart>
   ),
 };

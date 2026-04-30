@@ -15,7 +15,7 @@
 // ─────────────────────────────────────────────────
 
 import { useMemo, useState, useCallback } from 'react';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface BulletSeriesProps {
   /** Current measure value */

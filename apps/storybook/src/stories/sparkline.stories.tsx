@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Sparkline } from '@viskit/charts';
+import { Sparkline } from '@kodemaven/viskit-charts';
 import { sparklineData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Sparkline } from '@viskit/charts';
+ * import { Sparkline } from '@kodemaven/viskit-charts';
  * ```
  *
  * A standalone inline SVG mini chart — no `<Chart>` wrapper needed.

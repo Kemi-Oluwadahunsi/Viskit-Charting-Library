@@ -34,8 +34,8 @@ import {
   useState,
   type CSSProperties,
 } from 'react';
-import { useChartContext, useCartesianContext } from '@viskit/core';
-import { useReducedMotion } from '@viskit/animations';
+import { useChartContext, useCartesianContext } from '@kodemaven/viskit-core';
+import { useReducedMotion } from '@kodemaven/viskit-animations';
 
 // ── Types ──────────────────────────────────────
 

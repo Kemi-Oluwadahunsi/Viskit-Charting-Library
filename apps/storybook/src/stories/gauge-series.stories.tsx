@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { GaugeSeries } from '@viskit/charts';
-import { ChartWrapper } from './shared-data';
+import { Chart } from '@kodemaven/viskit-core';
+import { GaugeSeries, Legend } from '@kodemaven/viskit-charts';
+import { ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { GaugeSeries } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { GaugeSeries } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders a semi-circular gauge meter with colored segments, a needle, and
@@ -50,7 +50,12 @@ export const Default: Story = {
   args: { value: 72, min: 0, max: 100, thickness: 0.3, showValue: true, height: 300 },
   render: (args) => (
     <Chart data={[]} height={args.height}>
-      <GaugeSeries value={args.value} min={args.min} max={args.max} segments={[30, 60, 100]} thickness={args.thickness} showValue={args.showValue} />
+      <GaugeSeries value={args.value} min={args.min} max={args.max} segments={[30, 60, 100]} segmentColors={[PALETTE.red, PALETTE.amber, PALETTE.green]} thickness={args.thickness} showValue={args.showValue} />
+      <Legend items={[
+        { key: 'low', label: 'Low (0–30)', color: PALETTE.red },
+        { key: 'medium', label: 'Medium (30–60)', color: PALETTE.amber },
+        { key: 'high', label: 'High (60–100)', color: PALETTE.green },
+      ]} />
     </Chart>
   ),
 };

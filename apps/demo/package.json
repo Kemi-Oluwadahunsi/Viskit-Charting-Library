@@ -10,11 +10,11 @@
     "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "@viskit/react": "workspace:*",
-    "@viskit/core": "workspace:*",
-    "@viskit/charts": "workspace:*",
-    "@viskit/themes": "workspace:*",
-    "@viskit/animations": "workspace:*",
+    "viskit-react": "workspace:*",
+    "@kodemaven/viskit-core": "workspace:*",
+    "@kodemaven/viskit-charts": "workspace:*",
+    "@kodemaven/viskit-themes": "workspace:*",
+    "@kodemaven/viskit-animations": "workspace:*",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },

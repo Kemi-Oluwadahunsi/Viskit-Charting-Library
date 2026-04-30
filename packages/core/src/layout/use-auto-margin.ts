@@ -31,12 +31,13 @@ const AXIS_LABEL_SPACE = 24;
 const TITLE_SPACE = 28;
 const LEGEND_SPACE = 32;
 
-// Generous defaults that accommodate common axis labels
-// even when no explicit config is provided
+// Symmetric defaults — works for both cartesian and radial charts.
+// Cartesian charts add extra space via xAxis/yAxis config.
+// SVG overflow is visible, so labels won't clip even on tight margins.
 const DEFAULT_TOP = 16;
 const DEFAULT_RIGHT = 16;
-const DEFAULT_BOTTOM = 44;
-const DEFAULT_LEFT = 52;
+const DEFAULT_BOTTOM = 40;
+const DEFAULT_LEFT = 20;
 
 export function useAutoMargin(config: AutoMarginConfig = {}): Margin {
   const { xAxis, yAxis, hasTitle, legend, overrides } = config;

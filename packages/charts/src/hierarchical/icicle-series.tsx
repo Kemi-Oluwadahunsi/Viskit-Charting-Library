@@ -17,7 +17,7 @@ import {
   partition as d3Partition,
   type HierarchyRectangularNode,
 } from 'd3-hierarchy';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface IcicleSeriesProps<TDatum = Record<string, unknown>> {
   /** Numeric field for rectangle size */

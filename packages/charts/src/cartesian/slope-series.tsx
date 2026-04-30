@@ -13,7 +13,7 @@
 
 import { useMemo, useState, useCallback } from 'react';
 import { scaleLinear } from 'd3-scale';
-import { useChartContext } from '@viskit/core';
+import { useChartContext } from '@kodemaven/viskit-core';
 
 export interface SlopeSeriesProps<TDatum = Record<string, unknown>> {
   /** Numeric field for the start (left) value */

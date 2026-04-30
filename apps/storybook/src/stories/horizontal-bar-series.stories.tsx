@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@viskit/core';
-import { HorizontalBarSeries, Tooltip } from '@viskit/charts';
-import type { TooltipVariant } from '@viskit/charts';
+import { Chart } from '@kodemaven/viskit-core';
+import { HorizontalBarSeries, Tooltip, Legend } from '@kodemaven/viskit-charts';
+import type { TooltipVariant } from '@kodemaven/viskit-charts';
 import { trafficSources, radialBarData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@viskit/core';
- * import { HorizontalBarSeries, Tooltip } from '@viskit/charts';
+ * import { Chart } from '@kodemaven/viskit-core';
+ * import { HorizontalBarSeries, Tooltip } from '@kodemaven/viskit-charts';
  * ```
  *
  * Renders horizontal bars with categories on the Y axis and values
@@ -72,6 +72,7 @@ export const Default: Story = {
         opacity={args.opacity}
       />
       <Tooltip variant={args.tooltipVariant} />
+      <Legend items={[{ key: args.field, label: 'Sessions', color: args.color }]} />
     </Chart>
   ),
 };
