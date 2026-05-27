@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { FunnelSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, FunnelSeries, Legend } from 'viskit-react';
 import { funnelData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { FunnelSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { FunnelSeries } from 'viskit-react';
  * ```
  *
  * Renders a funnel chart showing progressive narrowing through pipeline

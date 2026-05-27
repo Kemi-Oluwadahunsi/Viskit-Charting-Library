@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { HistogramSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, HistogramSeries, Legend } from 'viskit-react';
 import { histogramRaw, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { HistogramSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { HistogramSeries } from 'viskit-react';
  * ```
  *
  * Renders a frequency distribution chart. Automatically bins numeric

@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { ParallelCoordinatesSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, ParallelCoordinatesSeries, Legend } from 'viskit-react';
 import { parallelData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { ParallelCoordinatesSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { ParallelCoordinatesSeries } from 'viskit-react';
  * ```
  *
  * Multi-axis comparison chart where each datum is a polyline

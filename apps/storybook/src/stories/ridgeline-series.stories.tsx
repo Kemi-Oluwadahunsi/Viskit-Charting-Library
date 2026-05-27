@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { RidgeLineSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, RidgeLineSeries, Legend } from 'viskit-react';
 import { ridgelineData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { RidgeLineSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { RidgeLineSeries } from 'viskit-react';
  * ```
  *
  * Joy plot / ridgeline chart with overlapping area curves stacked

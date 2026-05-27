@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { PyramidSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, PyramidSeries, Legend } from 'viskit-react';
 import { pyramidData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { PyramidSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { PyramidSeries } from 'viskit-react';
  * ```
  *
  * Renders a pyramid chart where each row's width is proportional

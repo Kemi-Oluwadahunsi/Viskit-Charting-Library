@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { ComparisonSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, ComparisonSeries, Legend } from 'viskit-react';
 import { comparisonData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { ComparisonSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { ComparisonSeries } from 'viskit-react';
  * ```
  *
  * Renders a tornado/butterfly chart with side-by-side horizontal bars

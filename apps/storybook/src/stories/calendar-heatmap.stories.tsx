@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { CalendarHeatmap, Legend } from '@kodemaven/viskit-charts';
+import { Chart, CalendarHeatmap, Legend } from 'viskit-react';
 import { calendarData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { CalendarHeatmap } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { CalendarHeatmap } from 'viskit-react';
  * ```
  *
  * GitHub-style calendar grid showing daily values across an entire year.

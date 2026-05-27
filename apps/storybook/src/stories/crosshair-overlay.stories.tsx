@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { LineSeries, CrosshairOverlay, Legend } from '@kodemaven/viskit-charts';
+import { Chart, LineSeries, CrosshairOverlay, Legend } from 'viskit-react';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { LineSeries, CrosshairOverlay } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { LineSeries, CrosshairOverlay } from 'viskit-react';
  * ```
  *
  * Cursor-tracking crosshair lines that follow mouse position

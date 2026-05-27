@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { ViolinSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, ViolinSeries, Legend } from 'viskit-react';
 import { violinData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { ViolinSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { ViolinSeries } from 'viskit-react';
  * ```
  *
  * Renders violin plots — mirrored kernel density estimations showing the

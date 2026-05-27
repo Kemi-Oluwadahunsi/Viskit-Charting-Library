@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { WaterfallSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, WaterfallSeries, Legend } from 'viskit-react';
 import { waterfallData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { WaterfallSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { WaterfallSeries } from 'viskit-react';
  * ```
  *
  * Renders a waterfall chart showing how an initial value is affected by

@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { TimelineSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, TimelineSeries, Legend } from 'viskit-react';
 import { timelineEvents, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { TimelineSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { TimelineSeries } from 'viskit-react';
  * ```
  *
  * Renders events on a horizontal timeline with labeled markers

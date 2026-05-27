@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { LineSeries, ChartGroup, Legend } from '@kodemaven/viskit-charts';
+import { Chart, LineSeries, ChartGroup, Legend } from 'viskit-react';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { LineSeries, ChartGroup } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { LineSeries, ChartGroup } from 'viskit-react';
  * ```
  *
  * Container for synchronizing multiple charts. Shares crosshair

@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { PolarAreaSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, PolarAreaSeries, Legend } from 'viskit-react';
 import { polarAreaData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { PolarAreaSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { PolarAreaSeries } from 'viskit-react';
  * ```
  *
  * Renders equal-angle sectors where the radius is proportional to

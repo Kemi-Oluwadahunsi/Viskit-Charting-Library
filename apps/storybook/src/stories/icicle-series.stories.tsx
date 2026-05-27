@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { IcicleSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, IcicleSeries, Legend } from 'viskit-react';
 import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { IcicleSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { IcicleSeries } from 'viskit-react';
  * ```
  *
  * Renders an icicle diagram — a horizontal partition layout where depth flows

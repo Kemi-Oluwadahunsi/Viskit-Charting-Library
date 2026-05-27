@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { RadarSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, RadarSeries, Legend } from 'viskit-react';
 import { radarMulti, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { RadarSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { RadarSeries } from 'viskit-react';
  * ```
  *
  * Renders a radar (spider) chart with one polygon per value field

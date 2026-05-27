@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { CirclePackingSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, CirclePackingSeries, Legend } from 'viskit-react';
 import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { CirclePackingSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { CirclePackingSeries } from 'viskit-react';
  * ```
  *
  * Renders a circle-packing layout where nested circles represent hierarchical

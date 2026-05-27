@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { StackedAreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
-import type { TooltipVariant } from '@kodemaven/viskit-charts';
+import { Chart, StackedAreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'viskit-react';
+import type { TooltipVariant } from 'viskit-react';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { StackedAreaSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { StackedAreaSeries, CartesianGrid, XAxis, YAxis, Tooltip } from 'viskit-react';
  * ```
  *
  * Renders stacked filled areas using D3 stack layout. Each field

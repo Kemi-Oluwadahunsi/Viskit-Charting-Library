@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { ForceGraph, Legend } from '@kodemaven/viskit-charts';
+import { Chart, ForceGraph, Legend } from 'viskit-react';
 import { forceNodes, forceLinks, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { ForceGraph } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { ForceGraph } from 'viskit-react';
  * ```
  *
  * Renders a force-directed graph where nodes are positioned by a physics

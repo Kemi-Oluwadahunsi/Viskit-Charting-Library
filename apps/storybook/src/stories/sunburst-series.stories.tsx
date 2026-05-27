@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { SunburstSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, SunburstSeries, Legend } from 'viskit-react';
 import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { SunburstSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { SunburstSeries } from 'viskit-react';
  * ```
  *
  * Renders a sunburst (radial treemap) where hierarchical data fans outward

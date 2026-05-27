@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { StreamGraphSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, StreamGraphSeries, Legend } from 'viskit-react';
 import { streamData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { StreamGraphSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { StreamGraphSeries } from 'viskit-react';
  * ```
  *
  * Renders a stream graph (stacked area with wiggle offset) showing how

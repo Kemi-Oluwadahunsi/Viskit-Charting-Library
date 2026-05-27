@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { ChordDiagram, Legend } from '@kodemaven/viskit-charts';
+import { Chart, ChordDiagram, Legend } from 'viskit-react';
 import { chordLabels, chordMatrix, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { ChordDiagram } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { ChordDiagram } from 'viskit-react';
  * ```
  *
  * Renders a chord diagram showing weighted bi-directional relationships

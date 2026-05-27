@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { AreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
-import type { TooltipVariant } from '@kodemaven/viskit-charts';
+import { Chart, AreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'viskit-react';
+import type { TooltipVariant } from 'viskit-react';
 import { monthlyMetrics, weeklyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { AreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { AreaSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'viskit-react';
  * ```
  *
  * Renders a filled area beneath a line. Supports gradient fills,

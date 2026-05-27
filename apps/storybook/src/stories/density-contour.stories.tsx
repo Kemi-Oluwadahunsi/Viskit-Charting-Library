@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { DensityContour, Legend } from '@kodemaven/viskit-charts';
+import { Chart, DensityContour, Legend } from 'viskit-react';
 import { densityData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { DensityContour } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { DensityContour } from 'viskit-react';
  * ```
  *
  * 2D density estimation with kernel density estimation on a grid.

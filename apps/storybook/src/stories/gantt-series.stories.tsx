@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { GanttSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, GanttSeries, Legend } from 'viskit-react';
 import { ganttData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { GanttSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { GanttSeries } from 'viskit-react';
  * ```
  *
  * Horizontal timeline bar chart for project management. Each row

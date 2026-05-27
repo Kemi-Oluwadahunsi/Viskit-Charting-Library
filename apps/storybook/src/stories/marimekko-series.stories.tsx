@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { MarimekkoSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, MarimekkoSeries, Legend } from 'viskit-react';
 import { marimekkoData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { MarimekkoSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { MarimekkoSeries } from 'viskit-react';
  * ```
  *
  * Variable-width stacked bar chart (Marimekko / Mekko). Column widths

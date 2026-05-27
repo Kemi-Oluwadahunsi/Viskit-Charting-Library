@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { VennDiagram, Legend } from '@kodemaven/viskit-charts';
+import { Chart, VennDiagram, Legend } from 'viskit-react';
 import { vennSets, vennIntersections, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { VennDiagram } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { VennDiagram } from 'viskit-react';
  * ```
  *
  * Renders overlapping circles representing set relationships.

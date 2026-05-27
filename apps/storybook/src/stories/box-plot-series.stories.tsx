@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { BoxPlotSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, BoxPlotSeries, Legend } from 'viskit-react';
 import { boxPlotData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { BoxPlotSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { BoxPlotSeries } from 'viskit-react';
  * ```
  *
  * Renders box-and-whisker plots showing statistical distribution. Each box

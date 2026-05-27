@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { BulletSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, BulletSeries, Legend } from 'viskit-react';
 import { ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { BulletSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { BulletSeries } from 'viskit-react';
  * ```
  *
  * Renders a bullet chart (Stephen Few design) for comparing a primary measure

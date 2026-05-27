@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { LollipopSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
-import type { TooltipVariant } from '@kodemaven/viskit-charts';
+import { Chart, LollipopSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'viskit-react';
+import type { TooltipVariant } from 'viskit-react';
 import { trafficSources, monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { LollipopSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { LollipopSeries, CartesianGrid, XAxis, YAxis, Tooltip } from 'viskit-react';
  * ```
  *
  * A hybrid of bar and scatter — renders a thin stick from baseline

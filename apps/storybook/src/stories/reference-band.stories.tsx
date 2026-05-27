@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { LineSeries, ReferenceBand, Legend } from '@kodemaven/viskit-charts';
+import { Chart, LineSeries, ReferenceBand, Legend } from 'viskit-react';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { LineSeries, ReferenceBand } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { LineSeries, ReferenceBand } from 'viskit-react';
  * ```
  *
  * Renders a shaded rectangular band between two values to highlight

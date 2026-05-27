@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { CandlestickSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, CandlestickSeries, Legend } from 'viskit-react';
 import { ohlcData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { CandlestickSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { CandlestickSeries } from 'viskit-react';
  * ```
  *
  * Renders candlestick (OHLC) charts for financial data. Each candle shows

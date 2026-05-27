@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { WordCloud } from '@kodemaven/viskit-charts';
+import { Chart, WordCloud } from 'viskit-react';
 import { wordCloudData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { WordCloud } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { WordCloud } from 'viskit-react';
  * ```
  *
  * Tag cloud with spiral placement. Font size is proportional to the

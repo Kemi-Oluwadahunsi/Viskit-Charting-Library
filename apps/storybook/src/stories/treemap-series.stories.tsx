@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { TreemapSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, TreemapSeries, Legend } from 'viskit-react';
 import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { TreemapSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { TreemapSeries } from 'viskit-react';
  * ```
  *
  * Renders a treemap layout where each node is a rectangle sized proportionally

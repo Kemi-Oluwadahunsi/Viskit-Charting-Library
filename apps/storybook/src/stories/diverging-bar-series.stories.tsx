@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { DivergingBarSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, DivergingBarSeries, Legend } from 'viskit-react';
 import { divergingData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { DivergingBarSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { DivergingBarSeries } from 'viskit-react';
  * ```
  *
  * Renders horizontal bars extending left and right from a center axis,

@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { LineSeries, ReferenceLine, Legend } from '@kodemaven/viskit-charts';
+import { Chart, LineSeries, ReferenceLine, Legend } from 'viskit-react';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { LineSeries, ReferenceLine } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { LineSeries, ReferenceLine } from 'viskit-react';
  * ```
  *
  * Renders a horizontal or vertical reference line at a specified

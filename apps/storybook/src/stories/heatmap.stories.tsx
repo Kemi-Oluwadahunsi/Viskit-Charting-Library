@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { Heatmap, Legend } from '@kodemaven/viskit-charts';
+import { Chart, Heatmap, Legend } from 'viskit-react';
 import { heatmapData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { Heatmap } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { Heatmap } from 'viskit-react';
  * ```
  *
  * Renders a grid of colored cells where color intensity represents

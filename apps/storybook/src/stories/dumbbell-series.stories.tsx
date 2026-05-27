@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { DumbbellSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from '@kodemaven/viskit-charts';
-import type { TooltipVariant } from '@kodemaven/viskit-charts';
+import { Chart, DumbbellSeries, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'viskit-react';
+import type { TooltipVariant } from 'viskit-react';
 import { dumbbellData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { DumbbellSeries, CartesianGrid, XAxis, YAxis, Tooltip } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { DumbbellSeries, CartesianGrid, XAxis, YAxis, Tooltip } from 'viskit-react';
  * ```
  *
  * Renders paired dots connected by a line — perfect for before/after,

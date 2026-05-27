@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { HorizontalBarSeries, Tooltip, Legend } from '@kodemaven/viskit-charts';
-import type { TooltipVariant } from '@kodemaven/viskit-charts';
+import { Chart, HorizontalBarSeries, Tooltip, Legend } from 'viskit-react';
+import type { TooltipVariant } from 'viskit-react';
 import { trafficSources, radialBarData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { HorizontalBarSeries, Tooltip } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { HorizontalBarSeries, Tooltip } from 'viskit-react';
  * ```
  *
  * Renders horizontal bars with categories on the Y axis and values

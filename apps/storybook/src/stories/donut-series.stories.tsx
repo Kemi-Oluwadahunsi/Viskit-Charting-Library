@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { DonutSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, DonutSeries, Legend } from 'viskit-react';
 import { donutData, pieData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { DonutSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { DonutSeries } from 'viskit-react';
  * ```
  *
  * A dedicated donut chart with configurable thickness, center label,

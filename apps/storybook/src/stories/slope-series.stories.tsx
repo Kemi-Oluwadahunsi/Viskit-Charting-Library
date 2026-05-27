@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { SlopeSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, SlopeSeries, Legend } from 'viskit-react';
 import { slopeData, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { SlopeSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { SlopeSeries } from 'viskit-react';
  * ```
  *
  * Renders a slope chart comparing two values per item across a before/after

@@ -174,7 +174,7 @@ export type {
 
 // ── Primitives ─────────────────────────────────
 export { XAxis, YAxis, CartesianGrid, Legend, Tooltip, TooltipContent } from '@kodemaven/viskit-charts';
-export type { XAxisProps, YAxisProps, CartesianGridProps, LegendProps, LegendItem, TooltipProps, TooltipContentProps } from '@kodemaven/viskit-charts';
+export type { XAxisProps, YAxisProps, CartesianGridProps, LegendProps, LegendItem, TooltipProps, TooltipContentProps, TooltipVariant } from '@kodemaven/viskit-charts';
 
 // ── Themes ─────────────────────────────────────
 export { midnight, daylight, aurora, corporate, createTheme, injectCSSVariables, ThemeProvider, useTheme } from '@kodemaven/viskit-themes';

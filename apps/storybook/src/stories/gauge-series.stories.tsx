@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { GaugeSeries, Legend } from '@kodemaven/viskit-charts';
+import { Chart, GaugeSeries, Legend } from 'viskit-react';
 import { ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { GaugeSeries } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { GaugeSeries } from 'viskit-react';
  * ```
  *
  * Renders a semi-circular gauge meter with colored segments, a needle, and

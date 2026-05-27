@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { LineSeries, Brush, Legend } from '@kodemaven/viskit-charts';
+import { Chart, LineSeries, Brush, Legend } from 'viskit-react';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { LineSeries, Brush } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { LineSeries, Brush } from 'viskit-react';
  * ```
  *
  * Draggable selection overlay for zooming/filtering chart data by range.

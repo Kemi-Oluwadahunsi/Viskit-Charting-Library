@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { LineSeries, Annotations } from '@kodemaven/viskit-charts';
-import type { AnnotationItem } from '@kodemaven/viskit-charts';
+import { Chart, LineSeries, Annotations } from 'viskit-react';
+import type { AnnotationItem } from 'viskit-react';
 import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { LineSeries, Annotations } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { LineSeries, Annotations } from 'viskit-react';
  * ```
  *
  * Renders text labels, circles, arrows, and rectangles at specified

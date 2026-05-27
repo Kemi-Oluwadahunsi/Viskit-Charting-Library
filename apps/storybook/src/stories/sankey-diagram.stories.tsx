@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
-import { SankeyDiagram, Legend } from '@kodemaven/viskit-charts';
+import { Chart, SankeyDiagram, Legend } from 'viskit-react';
 import { sankeyNodes, sankeyLinks, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { SankeyDiagram } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { SankeyDiagram } from 'viskit-react';
  * ```
  *
  * Renders a Sankey flow diagram showing weighted relationships between nodes.

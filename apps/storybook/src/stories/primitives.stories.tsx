@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart } from '@kodemaven/viskit-core';
+import { Chart } from 'viskit-react';
 import {
   LineSeries,
   BarSeries,
@@ -8,13 +8,13 @@ import {
   YAxis,
   Legend,
   Tooltip,
-} from '@kodemaven/viskit-charts';
+} from 'viskit-react';
 import { monthlyMetrics, trafficSources, ChartWrapper, PALETTE } from './shared-data';
 
 /**
  * ```tsx
- * import { Chart } from '@kodemaven/viskit-core';
- * import { CartesianGrid, XAxis, YAxis, Legend, Tooltip, TooltipContent } from '@kodemaven/viskit-charts';
+ * import { Chart } from 'viskit-react';
+ * import { CartesianGrid, XAxis, YAxis, Legend, Tooltip, TooltipContent } from 'viskit-react';
  * ```
  *
  * These are the building-block components that support chart axes,
