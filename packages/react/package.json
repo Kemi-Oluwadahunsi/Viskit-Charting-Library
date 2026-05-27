@@ -1,6 +1,6 @@
 {
   "name": "viskit-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "VisKit — composable React data visualization library (48 chart types)",
   "license": "MIT",
   "repository": {
@@ -11,7 +11,15 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["viskit", "chart", "react", "d3", "svg", "data-visualization", "typescript"],
+  "keywords": [
+    "viskit",
+    "chart",
+    "react",
+    "d3",
+    "svg",
+    "data-visualization",
+    "typescript"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -29,7 +37,9 @@
     }
   },
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
