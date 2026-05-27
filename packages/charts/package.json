@@ -1,6 +1,6 @@
 {
   "name": "@kodemaven/viskit-charts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "48 composable chart series components for VisKit",
   "license": "MIT",
   "repository": {
@@ -11,7 +11,14 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["viskit", "chart", "react", "d3", "svg", "data-visualization"],
+  "keywords": [
+    "viskit",
+    "chart",
+    "react",
+    "d3",
+    "svg",
+    "data-visualization"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
