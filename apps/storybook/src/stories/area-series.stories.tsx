@@ -20,7 +20,7 @@ import { monthlyMetrics, weeklyData, ChartWrapper, PALETTE } from './shared-data
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 1/AreaSeries',
+  title: 'Cartesian/Core/AreaSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

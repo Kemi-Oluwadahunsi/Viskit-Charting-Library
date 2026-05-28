@@ -30,7 +30,7 @@ import { ohlcData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/CandlestickSeries',
+  title: 'Cartesian/Financial/CandlestickSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

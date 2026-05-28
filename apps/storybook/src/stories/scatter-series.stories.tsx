@@ -21,7 +21,7 @@ import { scatterData, monthlyMetrics, ChartWrapper, PALETTE } from './shared-dat
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 1/ScatterSeries',
+  title: 'Cartesian/Core/ScatterSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

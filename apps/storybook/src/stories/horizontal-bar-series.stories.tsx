@@ -29,7 +29,7 @@ import { trafficSources, radialBarData, ChartWrapper, PALETTE } from './shared-d
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/HorizontalBarSeries',
+  title: 'Cartesian/Core/HorizontalBarSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

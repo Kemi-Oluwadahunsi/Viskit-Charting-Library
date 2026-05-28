@@ -30,7 +30,7 @@ import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 4/Annotations',
+  title: 'Interaction/Annotations',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
 };

@@ -27,7 +27,7 @@ import { forceNodes, forceLinks, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/ForceGraph',
+  title: 'Flow/ForceGraph',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

@@ -25,7 +25,7 @@ import { dumbbellData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/DumbbellSeries',
+  title: 'Cartesian/Distribution/DumbbellSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

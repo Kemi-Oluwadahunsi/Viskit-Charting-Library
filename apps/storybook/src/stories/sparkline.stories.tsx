@@ -23,7 +23,7 @@ import { sparklineData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/Sparkline',
+  title: 'Specialized/Sparkline',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

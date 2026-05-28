@@ -29,7 +29,7 @@ import { boxPlotData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/BoxPlotSeries',
+  title: 'Cartesian/Distribution/BoxPlotSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

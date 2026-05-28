@@ -28,7 +28,7 @@ import { sankeyNodes, sankeyLinks, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/SankeyDiagram',
+  title: 'Flow/SankeyDiagram',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

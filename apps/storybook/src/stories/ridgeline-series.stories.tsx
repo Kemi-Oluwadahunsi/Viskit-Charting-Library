@@ -26,7 +26,7 @@ import { ridgelineData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 4/RidgeLineSeries',
+  title: 'Cartesian/Advanced/RidgeLineSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

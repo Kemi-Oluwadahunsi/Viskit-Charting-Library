@@ -28,7 +28,7 @@ import { violinData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/ViolinSeries',
+  title: 'Cartesian/Distribution/ViolinSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

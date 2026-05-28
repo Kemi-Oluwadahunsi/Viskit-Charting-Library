@@ -21,7 +21,7 @@ import { vennSets, vennIntersections, ChartWrapper, PALETTE } from './shared-dat
  * - `strokeWidth` — circle border width
  */
 const meta: Meta = {
-  title: 'Phase 5/VennDiagram',
+  title: 'Specialized/VennDiagram',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

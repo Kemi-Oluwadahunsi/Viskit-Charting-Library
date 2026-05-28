@@ -26,7 +26,7 @@ import { polarAreaData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/PolarAreaSeries',
+  title: 'Radial/PolarAreaSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

@@ -26,7 +26,7 @@ import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/IcicleSeries',
+  title: 'Hierarchical/IcicleSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

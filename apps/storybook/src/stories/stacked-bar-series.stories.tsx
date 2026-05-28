@@ -21,7 +21,7 @@ import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/StackedBarSeries',
+  title: 'Cartesian/Core/StackedBarSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

@@ -20,7 +20,7 @@ import { monthlyMetrics, trafficSources, ChartWrapper, PALETTE } from './shared-
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 1/BarSeries',
+  title: 'Cartesian/Core/BarSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

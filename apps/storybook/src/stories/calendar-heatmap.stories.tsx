@@ -27,7 +27,7 @@ import { calendarData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 4/CalendarHeatmap',
+  title: 'Specialized/CalendarHeatmap',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

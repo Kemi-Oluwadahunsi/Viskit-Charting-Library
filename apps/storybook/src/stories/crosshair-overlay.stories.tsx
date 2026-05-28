@@ -28,7 +28,7 @@ import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 4/CrosshairOverlay',
+  title: 'Interaction/CrosshairOverlay',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

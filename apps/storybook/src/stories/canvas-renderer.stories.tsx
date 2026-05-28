@@ -22,7 +22,7 @@ import { ChartWrapper, PALETTE, scatterData } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/CanvasRenderer',
+  title: 'Performance/CanvasRenderer',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

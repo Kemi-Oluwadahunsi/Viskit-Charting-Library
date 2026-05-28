@@ -23,7 +23,7 @@ import { comparisonData, ChartWrapper, PALETTE } from './shared-data';
  * - `showValues` — toggle value labels on bars
  */
 const meta: Meta = {
-  title: 'Phase 5/ComparisonSeries',
+  title: 'Cartesian/Advanced/ComparisonSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

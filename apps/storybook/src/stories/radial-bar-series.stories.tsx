@@ -27,7 +27,7 @@ import { radialBarData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/RadialBarSeries',
+  title: 'Radial/RadialBarSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

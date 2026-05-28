@@ -29,7 +29,7 @@ import { monthlyMetrics, weeklyData, ChartWrapper, PALETTE } from './shared-data
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 1/LineSeries',
+  title: 'Cartesian/Core/LineSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

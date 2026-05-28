@@ -24,7 +24,7 @@ import { streamData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/StreamGraphSeries',
+  title: 'Cartesian/Advanced/StreamGraphSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

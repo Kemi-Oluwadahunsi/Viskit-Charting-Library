@@ -29,7 +29,7 @@ import { monthlyMetrics, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 4/ReferenceLine',
+  title: 'Interaction/ReferenceLine',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

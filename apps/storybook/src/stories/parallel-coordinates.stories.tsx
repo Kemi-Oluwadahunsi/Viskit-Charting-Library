@@ -30,7 +30,7 @@ import { parallelData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 4/ParallelCoordinatesSeries',
+  title: 'Cartesian/Advanced/ParallelCoordinatesSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

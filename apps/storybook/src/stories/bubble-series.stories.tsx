@@ -28,7 +28,7 @@ import { scatterData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/BubbleSeries',
+  title: 'Cartesian/Distribution/BubbleSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

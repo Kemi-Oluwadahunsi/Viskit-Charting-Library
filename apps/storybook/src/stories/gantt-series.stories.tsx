@@ -29,7 +29,7 @@ import { ganttData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 4/GanttSeries',
+  title: 'Cartesian/Advanced/GanttSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

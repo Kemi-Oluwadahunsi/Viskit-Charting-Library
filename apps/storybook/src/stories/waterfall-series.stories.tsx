@@ -29,7 +29,7 @@ import { waterfallData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/WaterfallSeries',
+  title: 'Cartesian/Financial/WaterfallSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

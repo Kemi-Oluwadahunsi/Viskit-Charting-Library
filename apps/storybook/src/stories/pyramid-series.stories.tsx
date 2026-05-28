@@ -21,7 +21,7 @@ import { pyramidData, ChartWrapper, PALETTE } from './shared-data';
  * - `opacity` — fill opacity
  */
 const meta: Meta = {
-  title: 'Phase 5/PyramidSeries',
+  title: 'Cartesian/Advanced/PyramidSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

@@ -23,7 +23,7 @@ import { donutData, pieData, ChartWrapper, PALETTE } from './shared-data';
  * - `opacity` — fill opacity
  */
 const meta: Meta = {
-  title: 'Phase 5/DonutSeries',
+  title: 'Radial/DonutSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

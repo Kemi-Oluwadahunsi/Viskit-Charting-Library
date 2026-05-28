@@ -31,7 +31,7 @@ import { histogramRaw, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 2/HistogramSeries',
+  title: 'Cartesian/Distribution/HistogramSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

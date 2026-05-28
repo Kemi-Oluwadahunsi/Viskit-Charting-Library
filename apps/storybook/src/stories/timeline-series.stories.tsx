@@ -23,7 +23,7 @@ import { timelineEvents, ChartWrapper, PALETTE } from './shared-data';
  * - `opacity` — fill opacity
  */
 const meta: Meta = {
-  title: 'Phase 5/TimelineSeries',
+  title: 'Cartesian/Advanced/TimelineSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

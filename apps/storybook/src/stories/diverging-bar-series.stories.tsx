@@ -22,7 +22,7 @@ import { divergingData, ChartWrapper, PALETTE } from './shared-data';
  * - `opacity` — fill opacity
  */
 const meta: Meta = {
-  title: 'Phase 5/DivergingBarSeries',
+  title: 'Cartesian/Advanced/DivergingBarSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {

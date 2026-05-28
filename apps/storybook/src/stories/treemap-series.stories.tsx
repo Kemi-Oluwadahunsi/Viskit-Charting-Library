@@ -28,7 +28,7 @@ import { hierarchyData, ChartWrapper, PALETTE } from './shared-data';
  * ```
  */
 const meta: Meta = {
-  title: 'Phase 3/TreemapSeries',
+  title: 'Hierarchical/TreemapSeries',
   decorators: [(Story) => <ChartWrapper><Story /></ChartWrapper>],
   tags: ['autodocs'],
   argTypes: {
